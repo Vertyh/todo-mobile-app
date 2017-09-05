@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import App from './app/containers/App';
+import App from './app/components/App';
 
 export default class ToDoApp extends Component {
   render() {

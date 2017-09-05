@@ -3,14 +3,13 @@ import { AppRegistry } from 'react-native';
 
 import { Provider } from 'react-redux';
 import store from '../redux/configureStore';
-import Input from '../components/Input';
-import ReduxTest from './ReduxTest';
+import AddItem from './AddItem/AddItem';
 
 class App extends Component {
     render() {
         return (
             <Provider store={store} >
-                <Input />
+                <AddItem />
             </Provider>
         );
     }
