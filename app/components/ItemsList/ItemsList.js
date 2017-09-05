@@ -7,10 +7,11 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
+import { toggleToDoItem } from '../../redux/actions';
 
 class ItemsList extends Component {
-    markItem(item) {
-        console.log(item);
+    markItem(itemId) {
+        this.props.dispatch(toggleToDoItem(itemId));
     }
     render() {
         return (
@@ -20,8 +21,8 @@ class ItemsList extends Component {
                 renderItem={
                     ({item}) =>
                         <Text
-                            style={styles.listItem}
-                            onPress={this.markItem(item)}
+                            style={(item.status) ? [styles.listItem, styles.listItemChecked] : styles.listItem}
+                            onPress={() => this.markItem(item.key)}
                         >
                             {item.content}
                         </Text>
@@ -42,6 +43,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         backgroundColor: "#FFF",
         marginBottom: 3
+    },
+    listItemChecked: {
+        textDecorationLine: "line-through"
     }
 });
 
