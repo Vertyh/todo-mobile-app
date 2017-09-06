@@ -1,6 +1,7 @@
 let defaultState = {
     availableId: 1,
-    todos: []
+    todos: [],
+    editing: false
 };
 
 import * as utils from '../../utils';
@@ -16,6 +17,12 @@ export default function reducer(state=defaultState, action) {
                     status: 0,
                     content: action.payload
                 }]
+            }
+        }
+        case 'TOGGLE_EDIT': {
+            return {
+                ...state,
+                editing: action.payload
             }
         }
         case 'TOGGLE_ITEM': {

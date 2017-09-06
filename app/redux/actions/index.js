@@ -4,6 +4,13 @@ export function addToDo(item) {
     }
 }
 
+export function toggleEdit(editing) {
+    return function(dispatch) {
+        dispatch({type: 'TOGGLE_EDIT', payload: editing})
+    }
+}
+
+
 export function toggleToDoItem(itemId) {
     return function(dispatch) {
         dispatch({type: 'TOGGLE_ITEM', payload: itemId})
