@@ -58,11 +58,11 @@ const styles = StyleSheet.create({
         marginBottom: 3
     },
     listItemText: {
-        flex: 0.8,
+        flex: 0.7,
         fontSize: 24
     },
     listItemRemoveWrapper: {
-        flex: 0.2,
+        flex: 0.3,
         alignItems: "center",
         justifyContent: "center"
     },
