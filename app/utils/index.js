@@ -4,3 +4,9 @@ export function updateTodoStatus(todos, todoId) {
 
     return todos;
 }
+
+export function removeTodo(todos, todoId) {
+    return todos.filter((item) => {
+        return item.key !== todoId;
+    });
+}

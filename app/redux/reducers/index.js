@@ -19,6 +19,13 @@ export default function reducer(state=defaultState, action) {
                 }]
             }
         }
+        case 'REMOVE_TODO': {
+            let todos = utils.removeTodo(state.todos, action.payload);
+            return {
+                ...state,
+                todos: todos
+            }
+        }
         case 'TOGGLE_EDIT': {
             return {
                 ...state,

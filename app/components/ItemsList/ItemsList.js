@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import {
-    AppRegistry,
-    Text
+    AppRegistry
 } from 'react-native';
 
 import { connect } from 'react-redux';
 import ItemsDisplayList from './ItemsDisplayList';
+import ItemsEditList from './ItemsEditList';
 
 class ItemsList extends Component {
     render() {
         if(this.props.editing) {
-            return <Text>Editing</Text>
+            return <ItemsEditList />
         }
 
         return <ItemsDisplayList />
