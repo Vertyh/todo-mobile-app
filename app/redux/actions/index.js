@@ -16,6 +16,11 @@ export function toggleEdit(editing) {
     }
 }
 
+export function openEditModal(item) {
+    return function(dispatch) {
+        dispatch({type: 'OPEN_EDIT_MODAL', payload: item})
+    }
+}
 
 export function toggleToDoItem(itemId) {
     return function(dispatch) {

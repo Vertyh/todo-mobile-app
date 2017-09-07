@@ -1,7 +1,15 @@
 let defaultState = {
-    availableId: 1,
-    todos: [],
-    editing: false
+    availableId: 2,
+    todos: [
+        {
+            key: 1,
+            status: 0,
+            content: 'Example'
+        }
+    ],
+    editing: false,
+    editModalActive: false,
+    editItem: {}
 };
 
 import * as utils from '../../utils';
@@ -30,6 +38,13 @@ export default function reducer(state=defaultState, action) {
             return {
                 ...state,
                 editing: action.payload
+            }
+        }
+        case 'OPEN_EDIT_MODAL': {
+            return {
+                ...state,
+                editModalActive: true,
+                editItem: action.payload
             }
         }
         case 'TOGGLE_ITEM': {
