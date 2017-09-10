@@ -54,11 +54,12 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection:'row',
         alignItems:'center',
-        justifyContent:'center',
+        justifyContent:'center'
     },
     modalInput: {
-        flex: 1,
-        padding: 20,
+        flex: 0.8,
+        fontSize: 22,
+        padding: 25,
         backgroundColor: "#FFF"
     }
 });

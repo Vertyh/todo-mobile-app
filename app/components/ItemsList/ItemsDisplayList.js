@@ -7,9 +7,14 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import { toggleToDoItem } from '../../redux/actions';
+import { fetchApiData, toggleToDoItem } from '../../redux/actions';
 
 class ItemsDisplayList extends Component {
+    componentDidMount() {
+        if(this.props.shouldFetch) {
+            this.props.dispatch(fetchApiData());
+        }
+    }
     markItem(itemId) {
         this.props.dispatch(toggleToDoItem(itemId));
     }
@@ -53,6 +58,7 @@ const styles = StyleSheet.create({
 
 export default connect((store) => {
     return {
+        shouldFetch: store.shouldFetch,
         todos: store.todos,
         editing: store.editing
     }

@@ -1,12 +1,7 @@
 let defaultState = {
-    availableId: 2,
-    todos: [
-        {
-            key: 1,
-            status: 0,
-            content: 'Example'
-        }
-    ],
+    shouldFetch: true,
+    availableId: 1,
+    todos: [],
     editing: false,
     editModalActive: false,
     editItem: {}
@@ -16,11 +11,23 @@ import * as utils from '../../utils';
 
 export default function reducer(state=defaultState, action) {
     switch(action.type) {
+        case 'FETCH_API_DATA': {
+            return {
+                ...state,
+                shouldFetch: false,
+                availableId: action.payload.length + 1,
+                todos: action.payload
+            };
+        }
+        case 'FETCHING_ERROR': {
+            return { ...state }
+        }
         case 'ADD_TODO': {
             return {
                 ...state,
                 availableId: state.availableId + 1,
                 todos: [ ...state.todos, {
+                    id: state.availableId,
                     key: state.availableId,
                     status: 0,
                     content: action.payload
