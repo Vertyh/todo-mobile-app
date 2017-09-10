@@ -41,6 +41,14 @@ export default function reducer(state=defaultState, action) {
                 todos: todos
             }
         }
+        case 'EDIT_TODO': {
+            let todos = utils.editTodo( [...state.todos ], action.payload);
+            return {
+                ...state,
+                todos: todos,
+                editModalActive: false
+            }
+        }
         case 'TOGGLE_EDIT': {
             return {
                 ...state,

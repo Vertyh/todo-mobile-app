@@ -10,3 +10,15 @@ export function removeTodo(todos, todoId) {
         return item.key !== todoId;
     });
 }
+
+export function editTodo(todos, editedItem) {
+    let index = todos.findIndex((item) => item.key === editedItem.key);
+    if(editedItem.content !== '') {
+        todos[index].content = editedItem.content;
+    }
+    else {
+        todos.splice(index, 1);
+    }
+
+    return todos;
+}

@@ -25,6 +25,12 @@ export function removeToDo(key) {
     }
 }
 
+export function editToDo(item) {
+    return function(dispatch) {
+        dispatch({type: 'EDIT_TODO', payload: item});
+    }
+}
+
 export function toggleEdit(editing) {
     return function(dispatch) {
         dispatch({type: 'TOGGLE_EDIT', payload: editing});

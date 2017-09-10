@@ -4,13 +4,11 @@ import {
     StyleSheet,
     View,
     TextInput,
-    Text,
-    TouchableOpacity,
     Modal
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import { removeToDo } from '../../redux/actions';
+import { editToDo } from '../../redux/actions';
 
 class ItemEditModal extends Component {
     constructor() {
@@ -23,7 +21,9 @@ class ItemEditModal extends Component {
         this.setState({content: this.props.editItem.content})
     }
     updateItemContent() {
-        alert(this.state.content);
+        let item = this.props.editItem;
+        item.content = this.state.content;
+        this.props.dispatch(editToDo(item));
     }
     render() {
         return (
@@ -31,7 +31,10 @@ class ItemEditModal extends Component {
                 animationType="fade"
                 transparent={true}
                 visible={this.props.editModalActive}
-                onShow={() => this.setItemValue()}
+                onShow={() => {
+                    this.setItemValue();
+                    this.editInput.focus();
+                }}
                 onRequestClose={() => {alert("Modal has been closed.")}}
             >
                 <View style={styles.modalContentWrapper}>
@@ -39,6 +42,7 @@ class ItemEditModal extends Component {
                         style={styles.modalInput}
                         placeholder="Edit"
                         placeholderTextColor="rgba(255, 255, 255, 0.9)"
+                        ref={(input) => { this.editInput = input; }}
                         value={this.state.content}
                         onChangeText={(text) => this.setState({content: text})}
                         onSubmitEditing={() => this.updateItemContent()}
@@ -60,7 +64,7 @@ const styles = StyleSheet.create({
         flex: 0.8,
         fontSize: 22,
         padding: 25,
-        backgroundColor: "#FFF"
+        backgroundColor: "#efefef"
     }
 });
 
