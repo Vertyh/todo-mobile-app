@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     View,
     TextInput,
@@ -77,5 +76,3 @@ export default connect((store) => {
         editing: store.editing
     }
 })(AddItem);
-
-AppRegistry.registerComponent('AddItem', () => AddItem);

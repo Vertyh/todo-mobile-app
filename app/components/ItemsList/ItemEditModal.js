@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     View,
     TextInput,
@@ -74,5 +73,3 @@ export default connect((store) => {
         editItem: store.editItem
     }
 })(ItemEditModal);
-
-AppRegistry.registerComponent('ItemEditModal', () => ItemEditModal);

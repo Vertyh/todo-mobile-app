@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     FlatList,
     Text
@@ -63,5 +62,3 @@ export default connect((store) => {
         editing: store.editing
     }
 })(ItemsDisplayList);
-
-AppRegistry.registerComponent('ItemsDisplayList', () => ItemsDisplayList);

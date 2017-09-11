@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import {
-    AppRegistry
-} from 'react-native';
 
 import { connect } from 'react-redux';
 import ItemsDisplayList from './ItemsDisplayList';
@@ -22,5 +19,3 @@ export default connect((store) => {
         editing: store.editing
     }
 })(ItemsList);
-
-AppRegistry.registerComponent('ItemsList', () => ItemsList);
