@@ -48,3 +48,21 @@ export function editTodo(todos, editedItem) {
 
     return todos;
 }
+
+/**
+ * Saves given item to remote database
+ * @param {Object} item - object containing item to save
+ */
+export function saveToDb(item) {
+    fetch('http://todoapp.robjed.usermd.net/create_task', {
+        method: 'POST',
+        body: JSON.stringify(item)
+    });
+}
+
+export function removeFromDb(key) {
+    fetch('http://todoapp.robjed.usermd.net/delete_task', {
+        method: 'POST',
+        body: JSON.stringify({ key: key })
+    });
+}

@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {
     StyleSheet,
     View,
-    TextInput,
-    Modal
+    TextInput
 } from 'react-native';
+import Modal from 'react-native-modal'
 
 import { connect } from 'react-redux';
 import { editToDo } from '../../redux/actions';
@@ -27,20 +27,18 @@ class ItemEditModal extends Component {
     render() {
         return (
             <Modal
-                animationType="fade"
-                transparent={true}
-                visible={this.props.editModalActive}
-                onShow={() => {
+                isVisible={this.props.editModalActive}
+                avoidKeyboard={true}
+                onModalShow={() => {
                     this.setItemValue();
                     this.editInput.focus();
                 }}
-                onRequestClose={() => {alert("Modal has been closed.")}}
             >
                 <View style={styles.modalContentWrapper}>
                     <TextInput
                         style={styles.modalInput}
                         placeholder="Edit"
-                        placeholderTextColor="rgba(255, 255, 255, 0.9)"
+                        placeholderTextColor="rgba(0, 0, 0, 0.9)"
                         ref={(input) => { this.editInput = input; }}
                         value={this.state.content}
                         onChangeText={(text) => this.setState({content: text})}
@@ -63,7 +61,7 @@ const styles = StyleSheet.create({
         flex: 0.8,
         fontSize: 22,
         padding: 25,
-        backgroundColor: "#efefef"
+        backgroundColor: '#FFF'
     }
 });
 

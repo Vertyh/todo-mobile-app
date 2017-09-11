@@ -1,5 +1,4 @@
 let defaultState = {
-    availableId: 1,
     todos: [],
     editing: false,
     editModalActive: false,
@@ -13,7 +12,6 @@ export default function reducer(state=defaultState, action) {
         case 'FETCH_API_DATA': {
             return {
                 ...state,
-                availableId: action.payload.length + 1,
                 todos: action.payload
             };
         }
@@ -21,17 +19,20 @@ export default function reducer(state=defaultState, action) {
             return { ...state }
         }
         case 'ADD_TODO': {
+            let newTodo = {
+                key: utils.generateUniqueKey(),
+                status: 0,
+                content: action.payload
+            };
+            utils.saveToDb(newTodo);
             return {
                 ...state,
-                todos: [ ...state.todos, {
-                    key: utils.generateUniqueKey(),
-                    status: 0,
-                    content: action.payload
-                }]
+                todos: [ ...state.todos, newTodo]
             }
         }
         case 'REMOVE_TODO': {
             let todos = utils.removeTodo(state.todos, action.payload);
+            utils.removeFromDb(action.payload);
             return {
                 ...state,
                 todos: todos
