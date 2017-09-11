@@ -1,5 +1,4 @@
 let defaultState = {
-    shouldFetch: true,
     availableId: 1,
     todos: [],
     editing: false,
@@ -14,7 +13,6 @@ export default function reducer(state=defaultState, action) {
         case 'FETCH_API_DATA': {
             return {
                 ...state,
-                shouldFetch: false,
                 availableId: action.payload.length + 1,
                 todos: action.payload
             };
@@ -25,10 +23,8 @@ export default function reducer(state=defaultState, action) {
         case 'ADD_TODO': {
             return {
                 ...state,
-                availableId: state.availableId + 1,
                 todos: [ ...state.todos, {
-                    id: state.availableId,
-                    key: state.availableId,
+                    key: utils.generateUniqueKey(),
                     status: 0,
                     content: action.payload
                 }]

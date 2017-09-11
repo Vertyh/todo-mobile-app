@@ -1,3 +1,5 @@
+import { generateUniqueKey } from '../../utils';
+
 export function fetchApiData() {
     return function(dispatch) {
         fetch('http://todoapp.robjed.usermd.net/get_all_tasks')
@@ -5,7 +7,7 @@ export function fetchApiData() {
             .then((data) => {
                 let todos = data.tasks;
                 todos.forEach((item) => {
-                   item.key = item.id;
+                   item.key = generateUniqueKey();
                 });
                 dispatch({type: 'FETCH_API_DATA', payload: todos})
             })

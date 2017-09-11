@@ -6,14 +6,9 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import { fetchApiData, toggleToDoItem } from '../../redux/actions';
+import { toggleToDoItem } from '../../redux/actions';
 
 class ItemsDisplayList extends Component {
-    componentDidMount() {
-        if(this.props.shouldFetch) {
-            this.props.dispatch(fetchApiData());
-        }
-    }
     markItem(itemId) {
         this.props.dispatch(toggleToDoItem(itemId));
     }
