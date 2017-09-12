@@ -7,6 +7,8 @@ import {
     TouchableOpacity
 } from 'react-native';
 
+import { Icon } from 'react-native-elements';
+
 import ItemEditModal from './ItemEditModal';
 
 import { connect } from 'react-redux';
@@ -41,7 +43,12 @@ class ItemsEditList extends Component {
                                     style={styles.listItemRemoveWrapper}
                                     onPress={() => this.removeItem(item.key)}
                                 >
-                                    <Text style={styles.listItemRemoveText}>Remove</Text>
+                                    <Icon
+                                        name='remove'
+                                        type='font-awesome'
+                                        size={40}
+                                        color="#FF3A3D"
+                                    />
                                 </TouchableOpacity>
                             </View>
                     }
@@ -58,28 +65,24 @@ const styles = StyleSheet.create({
     listItemWrapper: {
         flexDirection: "row",
         alignSelf: "stretch",
-        paddingVertical: 20,
         paddingHorizontal: 15,
         backgroundColor: "#FFF",
         marginBottom: 3
     },
     listItemTextWrapper: {
-        flex: 0.7
+        flex: 0.8,
+        paddingVertical: 20,
     },
     listItemText: {
-        fontSize: 24
+        fontSize: 26
     },
     listItemCheckedText: {
         textDecorationLine: "line-through"
     },
     listItemRemoveWrapper: {
-        flex: 0.3,
+        flex: 0.2,
         alignItems: "center",
         justifyContent: "center"
-    },
-    listItemRemoveText: {
-        color: "red",
-        fontSize: 20
     }
 });
 

@@ -1,10 +1,12 @@
-import { generateUniqueKey } from '../../utils';
-
 export function fetchApiData() {
     return function(dispatch) {
         fetch('http://todoapp.robjed.usermd.net/get_all_tasks')
             .then((response) => response.json())
             .then((data) => {
+                data.tasks.forEach((todo) => {
+                   todo.key = todo.item_key;
+                   delete todo.item_key;
+                });
                 dispatch({type: 'FETCH_API_DATA', payload: data.tasks})
             })
             .catch((err) => dispatch({type: 'FETCHING_ERROR'}))

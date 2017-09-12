@@ -3,9 +3,10 @@ import {
     StyleSheet,
     View,
     TextInput,
-    TouchableOpacity,
-    Text
+    TouchableOpacity
 } from 'react-native';
+
+import { Icon } from 'react-native-elements';
 
 import { connect } from 'react-redux';
 import { addToDo, toggleEdit } from '../../redux/actions';
@@ -39,7 +40,11 @@ class AddItem extends Component {
                     onSubmitEditing={() => this.addItem()}
                 />
                 <TouchableOpacity onPress={() => this.toggleEditMode()} style={styles.editButtonWrapper}>
-                    <Text style={styles.editButtonText}>Edit</Text>
+                    <Icon
+                        name='edit'
+                        type='font-awesome'
+                        size={40}
+                    />
                 </TouchableOpacity>
             </View>
         )
@@ -62,12 +67,8 @@ const styles = StyleSheet.create({
         flex: 0.2,
         height: 70,
         alignItems: "center",
-        justifyContent: "center"
-    },
-    editButtonText: {
-        fontSize: 20,
-        color: "#FFF",
-        fontWeight: "bold"
+        justifyContent: "center",
+        paddingTop: 10
     }
 });
 

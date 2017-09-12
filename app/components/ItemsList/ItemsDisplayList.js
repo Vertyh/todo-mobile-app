@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     },
     listItem: {
         alignSelf: "stretch",
-        fontSize: 24,
+        fontSize: 26,
         paddingVertical: 20,
         paddingHorizontal: 15,
         backgroundColor: "#FFF",
