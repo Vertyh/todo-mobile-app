@@ -5,11 +5,7 @@ export function fetchApiData() {
         fetch('http://todoapp.robjed.usermd.net/get_all_tasks')
             .then((response) => response.json())
             .then((data) => {
-                let todos = data.tasks;
-                todos.forEach((item) => {
-                   item.key = generateUniqueKey();
-                });
-                dispatch({type: 'FETCH_API_DATA', payload: todos})
+                dispatch({type: 'FETCH_API_DATA', payload: data.tasks})
             })
             .catch((err) => dispatch({type: 'FETCHING_ERROR'}))
     }
