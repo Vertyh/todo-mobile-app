@@ -12,9 +12,11 @@ export function generateUniqueKey() {
  * @param {Number} todoId - ID of ToDo to update
  * @return {Array} Updated list of ToDos
  */
-export function updateTodoStatus(todos, todoId) {
-    let index = todos.findIndex((item) => item.key === todoId);
-    todos[index].status = todos[index].status === 0 ? 1 : 0;
+export function updateTodoStatus(todos, todoData) {
+    let index = todos.findIndex((item) => item.key === todoData.key);
+    let status = todos[index].status === 0 ? 1 : 0;
+    todos[index].status = status;
+    updateStatusDb(todoData.key, status);
 
     return todos;
 }
@@ -41,9 +43,11 @@ export function editTodo(todos, editedItem) {
     let index = todos.findIndex((item) => item.key === editedItem.key);
     if(editedItem.content !== '') {
         todos[index].content = editedItem.content;
+        updateContentDb(editedItem.key, editedItem.content);
     }
     else {
         todos.splice(index, 1);
+        removeFromDb(editedItem.key);
     }
 
     return todos;
@@ -60,9 +64,37 @@ export function saveToDb(item) {
     });
 }
 
+/**
+ * Remove given item from remote database
+ * @param {String} key - unique key of item to remove
+ */
 export function removeFromDb(key) {
     fetch('http://todoapp.robjed.usermd.net/delete_task', {
         method: 'POST',
         body: JSON.stringify({ key: key })
+    });
+}
+
+/**
+ * Update given item status in remote database
+ * @param {String} key - unique key of item to edit
+ * @param {Number} status - new item status
+ */
+export function updateStatusDb(key, status) {
+    fetch('http://todoapp.robjed.usermd.net/change_status', {
+        method: 'POST',
+        body: JSON.stringify({ key: key, status: status })
+    });
+}
+
+/**
+ * Update given item content in remote database
+ * @param {String} key - unique key of item to edit
+ * @param {String} content - new item content
+ */
+export function updateContentDb(key, content) {
+    fetch('http://todoapp.robjed.usermd.net/update_content', {
+        method: 'POST',
+        body: JSON.stringify({ key: key, content: content })
     });
 }

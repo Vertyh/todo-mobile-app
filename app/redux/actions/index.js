@@ -43,8 +43,8 @@ export function openEditModal(item) {
     }
 }
 
-export function toggleToDoItem(itemId) {
+export function toggleToDoItem(key, status) {
     return function(dispatch) {
-        dispatch({type: 'TOGGLE_ITEM', payload: itemId});
+        dispatch({type: 'TOGGLE_ITEM', payload: {key: key, status: status}});
     }
 }

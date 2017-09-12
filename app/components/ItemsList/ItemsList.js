@@ -9,6 +9,12 @@ import ItemsEditList from './ItemsEditList';
 class ItemsList extends Component {
     componentDidMount() {
         this.props.dispatch(fetchApiData());
+        this.timer = setInterval(() => {
+            this.props.dispatch(fetchApiData());
+        }, 15000);
+    }
+    componentWillUnmount() {
+        clearInterval(this.timer);
     }
     render() {
         if(this.props.editing) {

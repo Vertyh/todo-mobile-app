@@ -9,8 +9,8 @@ import { connect } from 'react-redux';
 import { toggleToDoItem } from '../../redux/actions';
 
 class ItemsDisplayList extends Component {
-    markItem(itemId) {
-        this.props.dispatch(toggleToDoItem(itemId));
+    markItem(item) {
+        this.props.dispatch(toggleToDoItem(item.key, item.status));
     }
     render() {
         return (
@@ -21,7 +21,7 @@ class ItemsDisplayList extends Component {
                     ({item}) =>
                         <Text
                             style={(item.status) ? [styles.listItem, styles.listItemChecked] : styles.listItem}
-                            onPress={() => this.markItem(item.key)}
+                            onPress={() => this.markItem(item)}
                         >
                             {item.content}
                         </Text>
