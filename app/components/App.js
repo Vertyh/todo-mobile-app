@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import {
     AppRegistry,
-    StyleSheet,
     View
 } from 'react-native';
-
+import styles from '../styles/App';
 import { Provider } from 'react-redux';
 import store from '../redux/configureStore';
 
@@ -23,13 +22,6 @@ class App extends Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-   container: {
-       flex: 1,
-       backgroundColor: '#3498eb'
-   }
-});
 
 export default App;
 
