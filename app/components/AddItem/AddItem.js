@@ -17,10 +17,11 @@ class AddItem extends Component {
         }
     }
     addItem() {
-        if(this.state.item !== '') {
-            this.props.dispatch(addToDo(this.state.item));
-            this.setState({ item: '' });
+        if(this.state.item === '') {
+            return false;
         }
+        this.props.dispatch(addToDo(this.state.item));
+        this.setState({ item: '' });
     }
     toggleEditMode() {
         let editing = !this.props.editing;
