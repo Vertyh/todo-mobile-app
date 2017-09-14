@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
 import {
-    StyleSheet,
     View,
     FlatList,
     Text,
     TouchableOpacity
 } from 'react-native';
-
+import styles from '../../styles/ItemsList/ItemsEditList';
 import { Icon } from 'react-native-elements';
-
 import ItemEditModal from './ItemEditModal';
-
 import { connect } from 'react-redux';
 import { removeToDo, openEditModal } from '../../redux/actions';
 
@@ -57,34 +54,6 @@ class ItemsEditList extends Component {
         )
     }
 }
-
-const styles = StyleSheet.create({
-    listWrapper: {
-        marginTop: 3
-    },
-    listItemWrapper: {
-        flexDirection: "row",
-        alignSelf: "stretch",
-        paddingHorizontal: 15,
-        backgroundColor: "#FFF",
-        marginBottom: 3
-    },
-    listItemTextWrapper: {
-        flex: 0.8,
-        paddingVertical: 20,
-    },
-    listItemText: {
-        fontSize: 26
-    },
-    listItemCheckedText: {
-        textDecorationLine: "line-through"
-    },
-    listItemRemoveWrapper: {
-        flex: 0.2,
-        alignItems: "center",
-        justifyContent: "center"
-    }
-});
 
 export default connect((store) => {
     return {
