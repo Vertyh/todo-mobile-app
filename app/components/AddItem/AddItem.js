@@ -34,6 +34,7 @@ class AddItem extends Component {
                     style={styles.addInput}
                     placeholder="Add Item"
                     placeholderTextColor="rgba(255, 255, 255, 0.9)"
+                    underlineColorAndroid="transparent"
                     value={this.state.item}
                     onChangeText={(text) => this.setState({item: text})}
                     onSubmitEditing={() => this.addItem()}
