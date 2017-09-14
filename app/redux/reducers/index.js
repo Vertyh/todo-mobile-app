@@ -5,7 +5,8 @@ let defaultState = {
     editItem: {}
 };
 
-import * as utils from '../../utils';
+import * as utils from '../../utils/todos';
+import * as api from '../../utils/api';
 
 export default function reducer(state=defaultState, action) {
     switch(action.type) {
@@ -24,7 +25,7 @@ export default function reducer(state=defaultState, action) {
                 status: 0,
                 content: action.payload
             };
-            utils.saveToDb(newTodo);
+            api.saveItem(newTodo);
             return {
                 ...state,
                 todos: [ ...state.todos, newTodo]
@@ -32,7 +33,7 @@ export default function reducer(state=defaultState, action) {
         }
         case 'REMOVE_TODO': {
             let todos = utils.removeTodo(state.todos, action.payload);
-            utils.removeFromDb(action.payload);
+            api.removeItem(action.payload);
             return {
                 ...state,
                 todos: todos
