@@ -5,11 +5,11 @@ import {
     Text,
     TouchableOpacity
 } from 'react-native';
-import styles from '../../styles/ItemsList/ItemsEditList';
+import styles from '../../../styles/ItemsList/ItemsEditList';
 import { Icon } from 'react-native-elements';
 import ItemEditModal from './ItemEditModal';
 import { connect } from 'react-redux';
-import { removeToDo, openEditModal } from '../../redux/actions';
+import { removeToDo, openEditModal } from '../../../redux/actions';
 
 class ItemsEditList extends Component {
     editItem(item) {

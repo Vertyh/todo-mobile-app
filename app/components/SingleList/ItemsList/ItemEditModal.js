@@ -4,9 +4,9 @@ import {
     TextInput
 } from 'react-native';
 import Modal from 'react-native-modal'
-import styles from '../../styles/ItemsList/ItemEditModal';
+import styles from '../../../styles/ItemsList/ItemEditModal';
 import { connect } from 'react-redux';
-import { editToDo } from '../../redux/actions';
+import { editToDo } from '../../../redux/actions';
 
 class ItemEditModal extends Component {
     constructor() {

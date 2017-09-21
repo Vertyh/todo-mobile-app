@@ -4,10 +4,10 @@ import {
     TextInput,
     TouchableOpacity
 } from 'react-native';
-import styles from '../../styles/AddItem/AddItem';
+import styles from '../../../styles/AddItem/AddItem';
 import { Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { addToDo, toggleEdit } from '../../redux/actions';
+import { addToDo, toggleEdit } from '../../../redux/actions';
 
 class AddItem extends Component {
     constructor() {

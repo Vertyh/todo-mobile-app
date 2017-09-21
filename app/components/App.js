@@ -7,16 +7,14 @@ import styles from '../styles/App';
 import { Provider } from 'react-redux';
 import store from '../redux/configureStore';
 
-import AddItem from './AddItem/AddItem';
-import ItemsList from './ItemsList/ItemsList';
+import SingleList from './SingleList/SingleList';
 
 class App extends Component {
     render() {
         return (
             <Provider store={store} >
                 <View style={styles.container}>
-                    <AddItem />
-                    <ItemsList />
+                    <SingleList />
                 </View>
             </Provider>
         );

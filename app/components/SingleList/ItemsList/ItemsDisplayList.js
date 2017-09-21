@@ -3,9 +3,9 @@ import {
     FlatList,
     Text
 } from 'react-native';
-import styles from '../../styles/ItemsList/ItemsDisplayList';
+import styles from '../../../styles/ItemsList/ItemsDisplayList';
 import { connect } from 'react-redux';
-import { toggleToDoItem } from '../../redux/actions';
+import { toggleToDoItem } from '../../../redux/actions';
 
 class ItemsDisplayList extends Component {
     markItem(item) {
