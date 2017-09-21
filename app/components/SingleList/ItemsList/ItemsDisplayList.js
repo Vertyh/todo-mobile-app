@@ -32,8 +32,7 @@ class ItemsDisplayList extends Component {
 
 export default connect((store) => {
     return {
-        shouldFetch: store.shouldFetch,
-        todos: store.todos,
-        editing: store.editing
+        todos: store.todos.todos,
+        editing: store.todos.editing
     }
 })(ItemsDisplayList);

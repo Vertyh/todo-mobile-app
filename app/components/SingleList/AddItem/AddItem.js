@@ -53,6 +53,6 @@ class AddItem extends Component {
 
 export default connect((store) => {
     return {
-        editing: store.editing
+        editing: store.todos.editing
     }
 })(AddItem);

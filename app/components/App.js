@@ -3,19 +3,15 @@ import {
     AppRegistry,
     View
 } from 'react-native';
-import styles from '../styles/App';
 import { Provider } from 'react-redux';
 import store from '../redux/configureStore';
-
-import SingleList from './SingleList/SingleList';
+import AppWithNavigationState from '../navigators/AppNavigator';
 
 class App extends Component {
     render() {
         return (
             <Provider store={store} >
-                <View style={styles.container}>
-                    <SingleList />
-                </View>
+                <AppWithNavigationState/>
             </Provider>
         );
     }
