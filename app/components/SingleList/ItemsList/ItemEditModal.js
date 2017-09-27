@@ -6,7 +6,7 @@ import {
 import Modal from 'react-native-modal'
 import styles from '../../../styles/ItemsList/ItemEditModal';
 import { connect } from 'react-redux';
-import { editToDo } from '../../../redux/actions';
+import { editItem } from '../../../redux/actions/items';
 
 class ItemEditModal extends Component {
     constructor() {
@@ -21,7 +21,7 @@ class ItemEditModal extends Component {
     updateItemContent() {
         let item = this.props.editItem;
         item.content = this.state.content;
-        this.props.dispatch(editToDo(item));
+        this.props.dispatch(editItem(item));
     }
     render() {
         return (
@@ -51,7 +51,7 @@ class ItemEditModal extends Component {
 
 export default connect((store) => {
     return {
-        editModalActive: store.todos.editModalActive,
-        editItem: store.todos.editItem
+        editModalActive: store.items.editModalActive,
+        editItem: store.items.editItem
     }
 })(ItemEditModal);

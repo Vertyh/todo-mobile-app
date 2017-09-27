@@ -7,7 +7,7 @@ import {
 import styles from '../../../styles/AddItem/AddItem';
 import { Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { addToDo, toggleEdit } from '../../../redux/actions';
+import { addItem, toggleEdit } from '../../../redux/actions/items';
 
 class AddItem extends Component {
     constructor() {
@@ -16,11 +16,11 @@ class AddItem extends Component {
             item: ''
         }
     }
-    addItem() {
+    addNewItem() {
         if(this.state.item === '') {
             return false;
         }
-        this.props.dispatch(addToDo(this.state.item));
+        this.props.dispatch(addItem(this.state.item));
         this.setState({ item: '' });
     }
     toggleEditMode() {
@@ -37,7 +37,7 @@ class AddItem extends Component {
                     underlineColorAndroid="transparent"
                     value={this.state.item}
                     onChangeText={(text) => this.setState({item: text})}
-                    onSubmitEditing={() => this.addItem()}
+                    onSubmitEditing={() => this.addNewItem()}
                 />
                 <TouchableOpacity onPress={() => this.toggleEditMode()} style={styles.editButtonWrapper}>
                     <Icon
@@ -53,6 +53,6 @@ class AddItem extends Component {
 
 export default connect((store) => {
     return {
-        editing: store.todos.editing
+        editing: store.items.editing
     }
 })(AddItem);

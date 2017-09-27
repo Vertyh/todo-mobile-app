@@ -9,14 +9,14 @@ import styles from '../../../styles/ItemsList/ItemsEditList';
 import { Icon } from 'react-native-elements';
 import ItemEditModal from './ItemEditModal';
 import { connect } from 'react-redux';
-import { removeToDo, openEditModal } from '../../../redux/actions';
+import { removeItem, openEditModal } from '../../../redux/actions/items';
 
 class ItemsEditList extends Component {
     editItem(item) {
         this.props.dispatch(openEditModal(item));
     }
     removeItem(key) {
-        this.props.dispatch(removeToDo(key));
+        this.props.dispatch(removeItem(key));
     }
     render() {
         return (
@@ -24,7 +24,7 @@ class ItemsEditList extends Component {
                 <ItemEditModal />
                 <FlatList
                     style={styles.listWrapper}
-                    data={this.props.todos}
+                    data={this.props.items}
                     renderItem={
                         ({item}) =>
                             <View style={styles.listItemWrapper}>
@@ -57,7 +57,7 @@ class ItemsEditList extends Component {
 
 export default connect((store) => {
     return {
-        todos: store.todos.todos,
-        editModalActive: store.todos.editModalActive
+        items: store.items.items,
+        editModalActive: store.items.editModalActive
     }
 })(ItemsEditList);

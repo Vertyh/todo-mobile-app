@@ -5,17 +5,17 @@ import {
 } from 'react-native';
 import styles from '../../../styles/ItemsList/ItemsDisplayList';
 import { connect } from 'react-redux';
-import { toggleToDoItem } from '../../../redux/actions';
+import { toggleItem } from '../../../redux/actions/items';
 
 class ItemsDisplayList extends Component {
     markItem(item) {
-        this.props.dispatch(toggleToDoItem(item.key, item.status));
+        this.props.dispatch(toggleItem(item.key, item.status));
     }
     render() {
         return (
             <FlatList
                 style={styles.listWrapper}
-                data={this.props.todos}
+                data={this.props.items}
                 renderItem={
                     ({item}) =>
                         <Text
@@ -32,7 +32,7 @@ class ItemsDisplayList extends Component {
 
 export default connect((store) => {
     return {
-        todos: store.todos.todos,
-        editing: store.todos.editing
+        items: store.items.items,
+        editing: store.items.editing
     }
 })(ItemsDisplayList);
