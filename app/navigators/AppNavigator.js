@@ -7,16 +7,10 @@ import SingleList from '../components/SingleList/SingleList';
 
 export const AppNavigator = StackNavigator({
     Home: {
-        screen: Lists,
-        navigationOptions: ({navigation}) => ({
-            title: 'All Lists'
-        })
+        screen: Lists
     },
     Single: {
-        screen: SingleList,
-        navigationOptions: ({navigation}) => ({
-            title: `${navigation.state.params.title}`,
-        })
+        screen: SingleList
     }
 });
 

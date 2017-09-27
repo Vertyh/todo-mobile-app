@@ -8,6 +8,9 @@ import ItemsList from './ItemsList/ItemsList';
 import { StackNavigator } from 'react-navigation';
 
 class SingleList extends Component {
+    static navigationOptions = ({navigation}) => ({
+        title: `${navigation.state.params.title}`,
+    });
     render() {
         return (
             <View style={styles.container}>

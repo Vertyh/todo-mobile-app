@@ -3,25 +3,33 @@ import {
     View,
     FlatList,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    Button
 } from 'react-native';
 import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
-import styles from '../../styles/Common';
+import AddList from './AddList/AddList';
+import stylesCommon from '../../styles/Common';
+import styles from '../../styles/Lists/Lists';
 
 class Lists extends Component {
+    static navigationOptions = ({navigation}) => ({
+        title: 'All Lists',
+        headerRight: <AddList/>
+    });
     render() {
         return (
-            <View style={styles.container}>
+            <View style={stylesCommon.container}>
                 <FlatList
                     data={this.props.lists}
                     renderItem={
                         ({item}) =>
-                            <View>
+                            <View style={styles.listItemWrapper}>
                                 <TouchableOpacity
+                                    style={styles.listItemTextWrapper}
                                     onPress={() => this.props.navigation.dispatch({ type: 'Single', payload: {key: item.key, title: item.list_name}})}
                                 >
-                                    <Text>
+                                    <Text style={styles.listItemText}>
                                         {item.list_name}
                                     </Text>
                                 </TouchableOpacity>
