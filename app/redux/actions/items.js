@@ -3,9 +3,9 @@ export function fetchItemsData() {
         fetch('http://todoapp.robjed.usermd.net/get_all_tasks')
             .then((response) => response.json())
             .then((data) => {
-                data.tasks.forEach((todo) => {
-                   todo.key = todo.item_key;
-                   delete todo.item_key;
+                data.tasks.forEach((item) => {
+                    item.key = item.item_key;
+                   delete item.item_key;
                 });
                 dispatch({type: 'FETCH_ITEMS_DATA', payload: data.tasks})
             })
