@@ -12,7 +12,7 @@ export const AppNavigator = StackNavigator({
     Single: {
         screen: SingleList,
         navigationOptions: ({navigation}) => ({
-            title: `${navigation.state.params.title} List`,
+            title: `${navigation.state.params.title}`,
         }),
     }
 });

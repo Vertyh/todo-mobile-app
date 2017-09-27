@@ -24,6 +24,6 @@ class Lists extends Component {
             </View>
         );
     }
-};
+}
 
 export default Lists;
