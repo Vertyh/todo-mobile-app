@@ -5,10 +5,11 @@ import {
 } from 'react-native';
 import styles from '../../../styles/Lists/Lists';
 import { connect } from 'react-redux';
+import { openAddModal } from '../../../redux/actions/lists';
 
 class AddList extends Component {
     openModal() {
-        alert(1);
+        this.props.dispatch(openAddModal());
     }
     render() {
         return (
@@ -23,7 +24,5 @@ class AddList extends Component {
 }
 
 export default connect((store) => {
-    return {
-
-    }
+    return {}
 })(AddList);

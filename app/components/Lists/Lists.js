@@ -9,6 +9,7 @@ import {
 import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
 import AddList from './AddList/AddList';
+import AddListModal from './AddList/AddListModal';
 import stylesCommon from '../../styles/Common';
 import styles from '../../styles/Lists/Lists';
 
@@ -20,6 +21,7 @@ class Lists extends Component {
     render() {
         return (
             <View style={stylesCommon.container}>
+                <AddListModal />
                 <FlatList
                     data={this.props.lists}
                     renderItem={
