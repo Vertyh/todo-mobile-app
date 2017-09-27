@@ -7,9 +7,6 @@ import styles from '../../styles/Common';
 import { StackNavigator } from 'react-navigation';
 
 class Lists extends Component {
-    static navigationOptions = {
-        title: 'All Lists',
-    };
     render() {
         return (
             <View style={styles.container}>

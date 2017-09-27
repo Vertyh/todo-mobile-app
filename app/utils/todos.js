@@ -1,14 +1,6 @@
 import * as api from './api';
 
 /**
- * Generate unique key
- * @return {String} Generated key
- */
-export function generateUniqueKey() {
-    return `key_${new Date().getTime() + Math.random().toString(36).substr(2)}`;
-}
-
-/**
  * Update given ToDo status
  * @param {Array} todos - list of all todos
  * @param {Number} todoId - ID of ToDo to update

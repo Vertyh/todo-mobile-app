@@ -5,7 +5,8 @@ let defaultState = {
     editItem: {}
 };
 
-import * as utils from '../../utils/todos';
+import * as utils from '../../utils/common';
+import * as todosUtils from '../../utils/todos';
 import * as api from '../../utils/api';
 
 export default function reducer(state=defaultState, action) {
@@ -32,7 +33,7 @@ export default function reducer(state=defaultState, action) {
             }
         }
         case 'REMOVE_TODO': {
-            let todos = utils.removeTodo(state.todos, action.payload);
+            let todos = todosUtils.removeTodo(state.todos, action.payload);
             api.removeItem(action.payload);
             return {
                 ...state,
@@ -40,7 +41,7 @@ export default function reducer(state=defaultState, action) {
             }
         }
         case 'EDIT_TODO': {
-            let todos = utils.editTodo( [...state.todos ], action.payload);
+            let todos = todosUtils.editTodo( [...state.todos ], action.payload);
             return {
                 ...state,
                 todos: todos,
@@ -61,7 +62,7 @@ export default function reducer(state=defaultState, action) {
             }
         }
         case 'TOGGLE_ITEM': {
-            let todos = utils.updateTodoStatus( [ ...state.todos ], action.payload);
+            let todos = todosUtils.updateTodoStatus( [ ...state.todos ], action.payload);
             return {
                 ...state,
                 todos: todos
