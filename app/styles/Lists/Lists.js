@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    listItemWrapper: {
+    listWrapper: {
         flexDirection: "row",
         alignSelf: "stretch",
         paddingHorizontal: 15,
@@ -9,15 +9,20 @@ export default StyleSheet.create({
         borderBottomWidth: 2,
         borderBottomColor: "#000",
     },
-    listItemTextWrapper: {
-        flex: 0.8,
+    listTextWrapper: {
+        flex: 0.7,
         paddingVertical: 20,
     },
-    listItemText: {
+    listText: {
         fontSize: 24,
         color: "#000"
     },
     addListBtnWrapper: {
         paddingRight: 10
+    },
+    listActionIconWrapper: {
+        flex: 0.15,
+        alignItems: "center",
+        justifyContent: "center"
     }
 });

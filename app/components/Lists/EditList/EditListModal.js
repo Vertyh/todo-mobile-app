@@ -6,28 +6,30 @@ import {
 import Modal from 'react-native-modal'
 import styles from '../../../styles/Common';
 import { connect } from 'react-redux';
-import { addList } from '../../../redux/actions/lists';
+import { editList } from '../../../redux/actions/lists';
 
-class AddListModal extends Component {
+class EditListModal extends Component {
     constructor() {
         super();
         this.state = {
-            list: ''
+            listName: ''
         }
     }
-    addNewList() {
-        if(this.state.list === '') {
-            return false;
-        }
-        this.props.dispatch(addList(this.state.list));
-        this.setState({ list: '' });
+    setListNameValue() {
+        this.setState({listName: this.props.editList.list_name})
+    }
+    updateListName() {
+        let list = this.props.editList;
+        list.list_name = this.state.listName;
+        this.props.dispatch(editList(list));
     }
     render() {
         return (
             <Modal
-                isVisible={this.props.addModalActive}
+                isVisible={this.props.editModalActive}
                 avoidKeyboard={true}
                 onModalShow={() => {
+                    this.setListNameValue();
                     this.addInput.focus();
                 }}
             >
@@ -37,8 +39,9 @@ class AddListModal extends Component {
                         placeholder="List name"
                         placeholderTextColor="rgba(0, 0, 0, 0.9)"
                         ref={(input) => { this.addInput = input; }}
-                        onChangeText={(text) => this.setState({list: text})}
-                        onSubmitEditing={() => this.addNewList()}
+                        value={this.state.listName}
+                        onChangeText={(text) => this.setState({listName: text})}
+                        onSubmitEditing={() => this.updateListName()}
                     />
                 </View>
             </Modal>
@@ -48,6 +51,7 @@ class AddListModal extends Component {
 
 export default connect((store) => {
     return {
-        addModalActive: store.lists.addModalActive
+        editModalActive: store.lists.editModalActive,
+        editList: store.lists.editList
     }
-})(AddListModal);
+})(EditListModal);

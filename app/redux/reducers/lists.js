@@ -9,10 +9,14 @@ let defaultState = {
             key: 'key_1506534196148sm9u0hrihma'
         }
     ],
-    addModalActive: false
+    addModalActive: false,
+    editModalActive: false,
+    editList: {}
 };
 
 import * as utils from '../../utils/common';
+import * as itemsUtils from '../../utils/items';
+import * as listsUtils from '../../utils/lists';
 
 export default function reducer(state=defaultState, action) {
     switch(action.type) {
@@ -37,6 +41,28 @@ export default function reducer(state=defaultState, action) {
             return {
                 ...state,
                 addModalActive: true
+            }
+        }
+        case 'REMOVE_LIST': {
+            let lists = itemsUtils.removeItem(state.lists, action.payload);
+            return {
+                ...state,
+                lists: lists
+            }
+        }
+        case 'OPEN_LIST_EDIT_MODAL': {
+            return {
+                ...state,
+                editModalActive: true,
+                editList: action.payload
+            }
+        }
+        case 'EDIT_LIST': {
+            let lists = listsUtils.editList( [...state.lists ], action.payload);
+            return {
+                ...state,
+                lists: lists,
+                editModalActive: false
             }
         }
         default: {

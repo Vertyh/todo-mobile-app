@@ -4,7 +4,7 @@ import {
     TextInput
 } from 'react-native';
 import Modal from 'react-native-modal'
-import styles from '../../../styles/ItemsList/ItemEditModal';
+import styles from '../../../styles/Common';
 import { connect } from 'react-redux';
 import { editItem } from '../../../redux/actions/items';
 
@@ -33,9 +33,9 @@ class ItemEditModal extends Component {
                     this.editInput.focus();
                 }}
             >
-                <View style={styles.modalContentWrapper}>
+                <View style={styles.baseModalWrapper}>
                     <TextInput
-                        style={styles.modalInput}
+                        style={styles.baseModalInput}
                         placeholder="Edit"
                         placeholderTextColor="rgba(0, 0, 0, 0.9)"
                         ref={(input) => { this.editInput = input; }}
