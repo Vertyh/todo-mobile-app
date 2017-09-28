@@ -33,11 +33,11 @@ export function removeItem(items, itemId) {
  * @param {Object} editedItem - object containing edited item data
  * @return {Array} Updated list of items
  */
-export function editItem(items, editedItem) {
+export function editItem(items, editedItem, listKey) {
     let index = items.findIndex((item) => item.key === editedItem.key);
     if(editedItem.content !== '') {
         items[index].content = editedItem.content;
-        api.updateItemContent(editedItem.key, editedItem.content);
+        api.updateItemContent(editedItem.key, editedItem.content, listKey);
     }
     else {
         items.splice(index, 1);

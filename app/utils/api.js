@@ -41,6 +41,8 @@ export function updateItemContent(key, content, listKey) {
     fetch('http://todoapp.robjed.usermd.net/update_content', {
         method: 'POST',
         body: JSON.stringify({ item_key: key, content: content, list_key: listKey })
+    }).then((data) => {
+        console.log(JSON.stringify({ item_key: key, content: content, list_key: listKey }))
     });
 }
 
@@ -74,6 +76,6 @@ export function removeList(listKey) {
 export function updateListName(listKey, listName) {
     fetch('http://todoapp.robjed.usermd.net/change_list_name', {
         method: 'POST',
-        body: JSON.stringify({ item_key: listKey, list_name: listName })
+        body: JSON.stringify({ list_key: listKey, list_name: listName })
     });
 }
