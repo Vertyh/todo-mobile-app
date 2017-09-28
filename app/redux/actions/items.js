@@ -1,13 +1,16 @@
-export function fetchItemsData() {
+export function fetchItemsData(listKey) {
     return function(dispatch) {
-        fetch('http://todoapp.robjed.usermd.net/get_all_tasks')
+        fetch('http://todoapp.robjed.usermd.net/get_all_tasks', {
+            method: 'POST',
+            body: JSON.stringify({ list_key: listKey })
+        })
             .then((response) => response.json())
             .then((data) => {
                 data.tasks.forEach((item) => {
                     item.key = item.item_key;
                    delete item.item_key;
                 });
-                dispatch({type: 'FETCH_ITEMS_DATA', payload: data.tasks})
+                dispatch({type: 'FETCH_ITEMS_DATA', payload: { items: data.tasks, currentList: listKey }})
             })
             .catch((err) => dispatch({type: 'FETCHING_ITEMS_ERROR'}))
     }

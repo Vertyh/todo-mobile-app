@@ -13,7 +13,7 @@ export default function nav(state = initialNavState, action) {
             break;
         case 'Single':
             nextState = AppNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'Single', params: {title: action.payload.title} }),
+                NavigationActions.navigate({ routeName: 'Single', params: {title: action.payload.title, key: action.payload.key} }),
                 state
             );
             break;

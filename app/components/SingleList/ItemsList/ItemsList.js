@@ -6,9 +6,9 @@ import ItemsEditList from './ItemsEditList';
 
 class ItemsList extends Component {
     componentDidMount() {
-        this.props.dispatch(fetchItemsData());
+        this.props.dispatch(fetchItemsData(this.props.listKey));
         this.timer = setInterval(() => {
-            this.props.dispatch(fetchItemsData());
+            this.props.dispatch(fetchItemsData(this.props.listKey));
         }, 10000);
     }
     componentWillUnmount() {

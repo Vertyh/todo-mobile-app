@@ -5,7 +5,6 @@ import {
 import styles from '../../styles/Common';
 import AddItem from './AddItem/AddItem';
 import ItemsList from './ItemsList/ItemsList';
-import { StackNavigator } from 'react-navigation';
 
 class SingleList extends Component {
     static navigationOptions = ({navigation}) => ({
@@ -15,7 +14,7 @@ class SingleList extends Component {
         return (
             <View style={styles.container}>
                 <AddItem />
-                <ItemsList />
+                <ItemsList listKey={this.props.navigation.state.params.key} />
             </View>
         );
     }

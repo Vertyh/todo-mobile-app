@@ -1,19 +1,11 @@
 let defaultState = {
-    lists: [
-        {
-            list_name: 'Zakupy',
-            key: 'key_1506534179170738veso45yh'
-        },
-        {
-            list_name: 'Trening',
-            key: 'key_1506534196148sm9u0hrihma'
-        }
-    ],
+    lists: [],
     addModalActive: false,
     editModalActive: false,
     editList: {}
 };
 
+import * as api from '../../utils/api';
 import * as utils from '../../utils/common';
 import * as itemsUtils from '../../utils/items';
 import * as listsUtils from '../../utils/lists';
@@ -26,11 +18,17 @@ export default function reducer(state=defaultState, action) {
                 lists: action.payload
             };
         }
+        case 'FETCHING_LISTS_ERROR': {
+            return { ...state }
+        }
         case 'ADD_LIST': {
+            let listKey = utils.generateUniqueKey();
             let newList = {
-                key: utils.generateUniqueKey(),
+                key: listKey,
+                list_key: listKey,
                 list_name: action.payload
             };
+            api.createList(newList);
             return {
                 ...state,
                 lists: [...state.lists, newList],
@@ -45,6 +43,7 @@ export default function reducer(state=defaultState, action) {
         }
         case 'REMOVE_LIST': {
             let lists = itemsUtils.removeItem(state.lists, action.payload);
+            api.removeList(action.payload);
             return {
                 ...state,
                 lists: lists
@@ -59,6 +58,7 @@ export default function reducer(state=defaultState, action) {
         }
         case 'EDIT_LIST': {
             let lists = listsUtils.editList( [...state.lists ], action.payload);
+            api.updateListName(action.payload.key, action.payload.list_name);
             return {
                 ...state,
                 lists: lists,

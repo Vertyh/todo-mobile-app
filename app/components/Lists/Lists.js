@@ -12,13 +12,16 @@ import AddListModal from './AddList/AddListModal';
 import EditListModal from './EditList/EditListModal';
 import stylesCommon from '../../styles/Common';
 import styles from '../../styles/Lists/Lists';
-import { removeList, openEditModal } from '../../redux/actions/lists';
+import { fetchListsData, removeList, openEditModal } from '../../redux/actions/lists';
 
 class Lists extends Component {
     static navigationOptions = ({navigation}) => ({
         title: 'All Lists',
         headerRight: <AddList />
     });
+    componentDidMount() {
+        this.props.dispatch(fetchListsData());
+    }
     openEditModal(list) {
         this.props.dispatch(openEditModal(list));
     }

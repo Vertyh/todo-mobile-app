@@ -1,3 +1,18 @@
+export function fetchListsData() {
+    return function(dispatch) {
+        fetch('http://todoapp.robjed.usermd.net/get_lists')
+            .then((response) => response.json())
+            .then((data) => {
+                data.lists.forEach((list) => {
+                    list.key = list.list_key;
+                    delete list.list_key;
+                });
+                dispatch({type: 'FETCH_LISTS_DATA', payload: data.lists})
+            })
+            .catch((err) => dispatch({type: 'FETCHING_LISTS_ERROR'}))
+    }
+}
+
 export function addList(list) {
     return function(dispatch) {
         dispatch({type: 'ADD_LIST', payload: list});

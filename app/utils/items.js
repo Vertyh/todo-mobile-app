@@ -6,11 +6,11 @@ import * as api from './api';
  * @param {Number} itemData - data of item to update
  * @return {Array} Updated list of items
  */
-export function updateItemStatus(items, itemData) {
+export function updateItemStatus(items, itemData, listKey) {
     let index = items.findIndex((item) => item.key === itemData.key);
     let status = items[index].status === 0 ? 1 : 0;
     items[index].status = status;
-    api.updateItemStatus(itemData.key, status);
+    api.updateItemStatus(itemData.key, status, listKey);
 
     return items;
 }
