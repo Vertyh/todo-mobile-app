@@ -62,6 +62,7 @@ export function createList(list) {
  * @param {String} listKey - unique key of list to remove
  */
 export function removeList(listKey) {
+    console.log(JSON.stringify({ list_key: listKey }));
     fetch('http://todoapp.robjed.usermd.net/delete_list', {
         method: 'POST',
         body: JSON.stringify({ list_key: listKey })

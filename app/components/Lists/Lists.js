@@ -21,12 +21,6 @@ class Lists extends Component {
     });
     componentDidMount() {
         this.props.dispatch(fetchListsData());
-        this.timer = setInterval(() => {
-            this.props.dispatch(fetchListsData());
-        }, 10000);
-    }
-    componentWillUnmount() {
-        clearInterval(this.timer);
     }
     openEditModal(list) {
         this.props.dispatch(openEditModal(list));

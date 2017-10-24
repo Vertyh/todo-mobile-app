@@ -18,7 +18,9 @@ export default StyleSheet.create({
         color: "#000"
     },
     addListBtnWrapper: {
-        paddingRight: 10
+        paddingRight: 10,
+        flexWrap: 'wrap',
+        justifyContent: 'center'
     },
     listActionIconWrapper: {
         flex: 0.15,

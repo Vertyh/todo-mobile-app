@@ -13,7 +13,7 @@ class SingleList extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <AddItem />
+                <AddItem listKey={this.props.navigation.state.params.key} />
                 <ItemsList listKey={this.props.navigation.state.params.key} />
             </View>
         );

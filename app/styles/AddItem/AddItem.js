@@ -2,10 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     wrapper: {
-        flexDirection: "row",
+        flexDirection: "row"
     },
     addInput: {
-        flex: 0.8,
+        flex: 0.7,
         height: 70,
         fontSize: 22,
         paddingHorizontal: 15,
@@ -13,10 +13,16 @@ export default StyleSheet.create({
         backgroundColor: "rgba(255, 255, 255, 0.3)"
     },
     editButtonWrapper: {
-        flex: 0.2,
+        flex: 0.15,
         height: 70,
         alignItems: "center",
         justifyContent: "center",
         paddingTop: 10
+    },
+    refreshButtonWrapper: {
+        flex: 0.15,
+        alignItems: "center",
+        justifyContent: "center",
+        height: 70
     }
 });
