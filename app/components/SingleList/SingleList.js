@@ -9,6 +9,12 @@ import ItemsList from './ItemsList/ItemsList';
 class SingleList extends Component {
     static navigationOptions = ({navigation}) => ({
         title: `${navigation.state.params.title}`,
+        headerStyle: {
+            backgroundColor: '#D2D3E3'
+        },
+        headerTitleStyle: {
+            color: '#5A5EE7'
+        }
     });
     render() {
         return (

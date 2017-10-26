@@ -57,7 +57,6 @@ class ItemsEditList extends Component {
 
 export default connect((store) => {
     return {
-        items: store.items.items,
-        editModalActive: store.items.editModalActive
+        items: store.items.items
     }
 })(ItemsEditList);
