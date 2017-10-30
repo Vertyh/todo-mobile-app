@@ -17,6 +17,15 @@ import { fetchListsData, removeList, openEditModal } from '../../redux/actions/l
 class Lists extends Component {
     static navigationOptions = ({navigation}) => ({
         title: 'All Lists',
+        headerStyle: {
+            height: 85,
+            paddingHorizontal: 10,
+            backgroundColor: '#efefef'
+        },
+        headerTitleStyle: {
+            fontSize: 24,
+            color: '#4286f4'
+        },
         headerRight: <AddList />
     });
     componentDidMount() {
