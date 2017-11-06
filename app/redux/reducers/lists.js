@@ -69,6 +69,12 @@ export default function reducer(state=defaultState, action) {
                 editList: action.payload
             }
         }
+        case 'CLOSE_LIST_EDIT_MODAL': {
+            return {
+                ...state,
+                editModalActive: false
+            }
+        }
         case 'EDIT_LIST': {
             let lists = listsUtils.editList( [...state.lists ], action.payload);
             api.updateListName(action.payload.key, action.payload.list_name);

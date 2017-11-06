@@ -49,6 +49,12 @@ export function openEditModal(list) {
     }
 }
 
+export function closeEditModal() {
+    return function(dispatch) {
+        dispatch({type: 'CLOSE_LIST_EDIT_MODAL'});
+    }
+}
+
 export function editList(list) {
     return function(dispatch) {
         dispatch({type: 'EDIT_LIST', payload: list});
