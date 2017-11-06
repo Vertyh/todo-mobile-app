@@ -31,6 +31,12 @@ export function removeList(key) {
     }
 }
 
+export function toggleEdit(editing) {
+    return function(dispatch) {
+        dispatch({type: 'TOGGLE_LISTS_EDIT', payload: editing});
+    }
+}
+
 export function openEditModal(list) {
     return function(dispatch) {
         dispatch({type: 'OPEN_LIST_EDIT_MODAL', payload: list});

@@ -4,7 +4,7 @@ import {
     TextInput
 } from 'react-native';
 import Modal from 'react-native-modal'
-import styles from '../../../styles/Common';
+import styles from '../../../styles/Common/index';
 import { connect } from 'react-redux';
 import { addList } from '../../../redux/actions/lists';
 

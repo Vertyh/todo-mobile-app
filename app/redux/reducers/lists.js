@@ -1,5 +1,6 @@
 let defaultState = {
     lists: [],
+    editing: false,
     addModalActive: false,
     editModalActive: false,
     editList: {}
@@ -33,6 +34,12 @@ export default function reducer(state=defaultState, action) {
                 ...state,
                 lists: [...state.lists, newList],
                 addModalActive: false
+            }
+        }
+        case 'TOGGLE_LISTS_EDIT': {
+            return {
+                ...state,
+                editing: action.payload
             }
         }
         case 'OPEN_ADD_MODAL': {
