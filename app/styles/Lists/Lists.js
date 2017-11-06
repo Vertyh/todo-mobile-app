@@ -11,26 +11,29 @@ export default StyleSheet.create({
         borderLeftColor: "#4286f4"
     },
     listTextWrapper: {
-        flex: 0.7,
+        flex: 0.85,
         paddingVertical: 25
     },
     listText: {
         fontSize: 24,
         color: "#444"
     },
-    addListBtnWrapper: {
-        paddingRight: 10,
-        flexWrap: 'wrap',
-        justifyContent: 'center'
-    },
     listActionIconWrapper: {
         flex: 0.15,
         alignItems: "center",
         justifyContent: "center"
     },
-    addListBtnInner: {
+    headerRightWrapper: {
+        paddingRight: 10,
+        flexWrap: 'wrap',
+        justifyContent: 'center'
+    },
+    headerRightBtnInner: {
         borderRadius: 50,
         padding: 8,
-        backgroundColor: "#F57173"
+        backgroundColor: "#F57173",
+    },
+    headerRightBtnEdit: {
+        marginLeft: 10
     }
 });

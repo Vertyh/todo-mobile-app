@@ -48,6 +48,12 @@ export default function reducer(state=defaultState, action) {
                 addModalActive: true
             }
         }
+        case 'CLOSE_ADD_MODAL': {
+            return {
+                ...state,
+                addModalActive: false
+            }
+        }
         case 'REMOVE_LIST': {
             let lists = itemsUtils.removeItem(state.lists, action.payload);
             api.removeList(action.payload);

@@ -25,6 +25,12 @@ export function openAddModal() {
     }
 }
 
+export function closeAddModal() {
+    return function(dispatch) {
+        dispatch({type: 'CLOSE_ADD_MODAL'});
+    }
+}
+
 export function removeList(key) {
     return function (dispatch) {
         dispatch({type: 'REMOVE_LIST', payload: key});

@@ -40,9 +40,9 @@ class ListsEditMode extends Component {
                                 onPress={() => this.removeList(item.key)}
                             >
                                 <Icon
-                                    name='remove'
-                                    type='font-awesome'
-                                    size={40}
+                                    name='close'
+                                    type='material-community'
+                                    size={46}
                                     color="#FF3A3D"
                                 />
                             </TouchableOpacity>

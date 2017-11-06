@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {
     View,
-    TextInput
+    TextInput,
+    TouchableOpacity,
+    Text
 } from 'react-native';
 import Modal from 'react-native-modal'
-import styles from '../../../styles/Common/index';
+import styles from '../../../styles/Modals/Modals';
 import { connect } from 'react-redux';
-import { addList } from '../../../redux/actions/lists';
+import { addList, closeAddModal } from '../../../redux/actions/lists';
 
 class AddListModal extends Component {
     constructor() {
@@ -15,6 +17,7 @@ class AddListModal extends Component {
             list: ''
         }
     }
+
     addNewList() {
         if(this.state.list === '') {
             return false;
@@ -22,6 +25,12 @@ class AddListModal extends Component {
         this.props.dispatch(addList(this.state.list));
         this.setState({ list: '' });
     }
+
+    cancelModal() {
+        this.setState({list: ''});
+        this.props.dispatch(closeAddModal());
+    }
+
     render() {
         return (
             <Modal
@@ -32,14 +41,35 @@ class AddListModal extends Component {
                 }}
             >
                 <View style={styles.baseModalWrapper}>
-                    <TextInput
-                        style={styles.baseModalInput}
-                        placeholder="List name"
-                        placeholderTextColor="rgba(0, 0, 0, 0.9)"
-                        ref={(input) => { this.addInput = input; }}
-                        onChangeText={(text) => this.setState({list: text})}
-                        onSubmitEditing={() => this.addNewList()}
-                    />
+
+                    <View style={styles.modalInputWrapper}>
+                        <TextInput
+                            style={styles.baseModalInput}
+                            placeholder="List"
+                            placeholderTextColor="rgba(0, 0, 0, 0.9)"
+                            underlineColorAndroid="transparent"
+                            ref={(input) => { this.addInput = input; }}
+                            onChangeText={(text) => this.setState({list: text})}
+                            onSubmitEditing={() => this.addNewList()}
+                        />
+                    </View>
+
+                    <View style={styles.modalButtons}>
+                        <TouchableOpacity
+                            style={styles.modalConfirmBtn}
+                            onPress={() => this.cancelModal()}
+                        >
+                            <Text style={styles.modalConfirmText}>Cancel</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style={styles.modalConfirmBtn}
+                            onPress={() => this.addNewList()}
+                        >
+                            <Text style={styles.modalConfirmText}>Add</Text>
+                        </TouchableOpacity>
+                    </View>
+
                 </View>
             </Modal>
         )

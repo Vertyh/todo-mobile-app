@@ -21,14 +21,14 @@ class AddList extends Component {
     refreshLists() {
         this.props.dispatch(fetchListsData());
     }
-    
+
     render() {
         return (
-            <View style={styles.addListBtnWrapper}>
+            <View style={styles.headerRightWrapper}>
                 <TouchableOpacity
                     onPress={() => this.openModal()}
                 >
-                    <View style={styles.addListBtnInner}>
+                    <View style={styles.headerRightBtnInner}>
                         <Icon
                             name='plus'
                             type='material-community'
@@ -40,21 +40,31 @@ class AddList extends Component {
 
                 <TouchableOpacity
                     onPress={() => this.toggleEditMode()}
+                    style={styles.headerRightBtnEdit}
                 >
-                    <View style={styles.addListBtnInner}>
+                    <View style={styles.headerRightBtnInner}>
                         <Icon
                             name='edit'
                             type='material-icons'
-                            size={40}
+                            size={38}
                             color="#fff"
                         />
                     </View>
                 </TouchableOpacity>
-                {/*<Button*/}
-                    {/*title="Refresh"*/}
-                    {/*onPress={() => this.refreshLists()}*/}
-                    {/*color="#2c632f"*/}
-                {/*/>*/}
+
+                <TouchableOpacity
+                    onPress={() => this.refreshLists()}
+                    style={styles.headerRightBtnEdit}
+                >
+                    <View style={styles.headerRightBtnInner}>
+                        <Icon
+                            name='refresh'
+                            type='material-icons'
+                            size={38}
+                            color="#fff"
+                        />
+                    </View>
+                </TouchableOpacity>
             </View>
         )
     }
