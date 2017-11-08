@@ -5,7 +5,7 @@ import {
     Text,
     TouchableOpacity
 } from 'react-native';
-import styles from '../../../styles/ItemsList/ItemsEditList';
+import styles from '../../../styles/Items/Items';
 import { Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { removeItem, openEditModal } from '../../../redux/actions/items';
@@ -25,23 +25,23 @@ class ItemsEditList extends Component {
                     data={this.props.items}
                     renderItem={
                         ({item}) =>
-                            <View style={styles.listItemWrapper}>
+                            <View style={styles.itemEditWrapper}>
                                 <TouchableOpacity
-                                    style={styles.listItemTextWrapper}
+                                    style={styles.itemEditTextWrapper}
                                     onPress={() => this.editItem(item)}
                                 >
-                                    <Text style={(item.status) ? [styles.listItemText, styles.listItemCheckedText] : styles.listItemText}>
+                                    <Text style={(item.status) ? [styles.itemText, styles.itemTextChecked] : styles.itemText}>
                                         {item.content}
                                     </Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity
-                                    style={styles.listItemRemoveWrapper}
+                                    style={styles.itemEditRemoveBtn}
                                     onPress={() => this.removeItem(item.key)}
                                 >
                                     <Icon
-                                        name='remove'
-                                        type='font-awesome'
-                                        size={40}
+                                        name='close'
+                                        type='material-community'
+                                        size={46}
                                         color="#FF3A3D"
                                     />
                                 </TouchableOpacity>

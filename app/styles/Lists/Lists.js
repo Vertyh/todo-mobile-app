@@ -7,7 +7,7 @@ export default StyleSheet.create({
         borderBottomWidth: 2,
         borderBottomColor: "#D2D3E3",
         borderLeftWidth: 8,
-        borderLeftColor: "#4286f4"
+        borderLeftColor: "#4286f4",
     },
     listTextWrapper: {
         flex: 0.85,
