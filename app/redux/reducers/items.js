@@ -2,6 +2,7 @@ let defaultState = {
     items: [],
     currentList: '',
     editing: false,
+    addModalActive: false,
     editModalActive: false,
     editItem: {}
 };
@@ -31,7 +32,8 @@ export default function reducer(state=defaultState, action) {
             api.saveItem({ ...newItem, item_key: newItem.key, list_key: state.currentList });
             return {
                 ...state,
-                items: [ ...state.items, newItem]
+                items: [ ...state.items, newItem],
+                addModalActive: false
             }
         }
         case 'REMOVE_ITEM': {
@@ -56,11 +58,29 @@ export default function reducer(state=defaultState, action) {
                 editing: action.payload
             }
         }
-        case 'OPEN_EDIT_MODAL': {
+        case 'OPEN_ITEM_ADD_MODAL': {
+            return {
+                ...state,
+                addModalActive: true
+            }
+        }
+        case 'CLOSE_ITEM_ADD_MODAL': {
+            return {
+                ...state,
+                addModalActive: false
+            }
+        }
+        case 'OPEN_ITEM_EDIT_MODAL': {
             return {
                 ...state,
                 editModalActive: true,
                 editItem: action.payload
+            }
+        }
+        case 'CLOSE_ITEM_EDIT_MODAL': {
+            return {
+                ...state,
+                editModalActive: false
             }
         }
         case 'TOGGLE_ITEM': {

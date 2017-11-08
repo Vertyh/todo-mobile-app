@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 import styles from '../../../styles/ItemsList/ItemsEditList';
 import { Icon } from 'react-native-elements';
-import ItemEditModal from '../ItemsList/ItemEditModal';
 import { connect } from 'react-redux';
 import { removeItem, openEditModal } from '../../../redux/actions/items';
 
@@ -21,7 +20,6 @@ class ItemsEditList extends Component {
     render() {
         return (
             <View>
-                <ItemEditModal />
                 <FlatList
                     style={styles.listWrapper}
                     data={this.props.items}

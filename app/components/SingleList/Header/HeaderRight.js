@@ -6,11 +6,11 @@ import {
 import { Icon } from 'react-native-elements';
 import styles from '../../../styles/Common/HeaderRight';
 import { connect } from 'react-redux';
-import { openAddModal, fetchItemsData, toggleEdit } from '../../../redux/actions/items';
+import { openItemAddModal, fetchItemsData, toggleEdit } from '../../../redux/actions/items';
 
 class AddList extends Component {
     openModal() {
-        this.props.dispatch(openAddModal());
+        this.props.dispatch(openItemAddModal());
     }
 
     toggleEditMode() {
@@ -19,7 +19,7 @@ class AddList extends Component {
     }
 
     refreshLists() {
-        this.props.dispatch(fetchItemsData());
+        this.props.dispatch(fetchItemsData(this.props.listKey));
     }
 
     render() {

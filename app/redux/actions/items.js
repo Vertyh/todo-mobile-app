@@ -34,6 +34,18 @@ export function editItem(item) {
     }
 }
 
+export function openItemAddModal() {
+    return function(dispatch) {
+        dispatch({type: 'OPEN_ITEM_ADD_MODAL'});
+    }
+}
+
+export function closeItemAddModal() {
+    return function(dispatch) {
+        dispatch({type: 'CLOSE_ITEM_ADD_MODAL'});
+    }
+}
+
 export function toggleEdit(editing) {
     return function(dispatch) {
         dispatch({type: 'TOGGLE_ITEM_EDIT', payload: editing});
@@ -42,7 +54,13 @@ export function toggleEdit(editing) {
 
 export function openEditModal(item) {
     return function(dispatch) {
-        dispatch({type: 'OPEN_EDIT_MODAL', payload: item});
+        dispatch({type: 'OPEN_ITEM_EDIT_MODAL', payload: item});
+    }
+}
+
+export function closeEditModal() {
+    return function(dispatch) {
+        dispatch({type: 'CLOSE_ITEM_EDIT_MODAL'});
     }
 }
 

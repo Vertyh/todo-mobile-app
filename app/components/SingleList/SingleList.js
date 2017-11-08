@@ -4,7 +4,9 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import styles from '../../styles/Common';
-import AddItem from './AddItem/AddItem';
+import HeaderRight from './Header/HeaderRight';
+import AddItemModal from './Modals/AddItemModal';
+import EditItemModal from './Modals/EditItemModal';
 import ItemsDisplayMode from './Views/ItemsDisplayMode';
 import ItemsEditMode from './Views/ItemsEditMode';
 import { fetchItemsData } from '../../redux/actions/items';
@@ -18,13 +20,14 @@ class SingleList extends Component {
         },
         headerTitleStyle: {
             fontSize: 22,
-            color: '#4286f4'
+            color: '#4286f4',
+            maxWidth: 120
         },
-        // headerRight: <HeaderRight />
+        headerRight: <HeaderRight listKey={navigation.state.params.key} />
     });
 
     componentDidMount() {
-        this.props.dispatch(fetchItemsData(this.props.listKey));
+        this.props.dispatch(fetchItemsData(this.props.navigation.state.params.key));
     }
 
     render() {
@@ -35,7 +38,8 @@ class SingleList extends Component {
         }
         return (
             <View style={styles.container}>
-                <AddItem listKey={this.props.navigation.state.params.key} />
+                <AddItemModal />
+                <EditItemModal />
                 {list}
             </View>
         );
