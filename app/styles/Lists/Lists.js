@@ -26,22 +26,5 @@ export default StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         paddingRight: 25
-    },
-    headerRightWrapper: {
-        paddingRight: 10,
-        flexWrap: 'wrap',
-        justifyContent: 'center'
-    },
-    headerRightBtnInner: {
-        alignItems: "center",
-        justifyContent: "center",
-        width: 50,
-        height: 50,
-        borderRadius: 50,
-        padding: 0,
-        backgroundColor: "#F57173",
-    },
-    headerRightBtnEdit: {
-        marginLeft: 10
     }
 });

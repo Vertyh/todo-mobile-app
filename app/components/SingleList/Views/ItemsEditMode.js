@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import styles from '../../../styles/ItemsList/ItemsEditList';
 import { Icon } from 'react-native-elements';
-import ItemEditModal from './ItemEditModal';
+import ItemEditModal from '../ItemsList/ItemEditModal';
 import { connect } from 'react-redux';
 import { removeItem, openEditModal } from '../../../redux/actions/items';
 
