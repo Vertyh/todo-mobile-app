@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {
     FlatList,
+    TouchableOpacity,
     Text
 } from 'react-native';
-import styles from '../../../styles/ItemsList/ItemsDisplayList';
+import { Icon } from 'react-native-elements';
+import styles from '../../../styles/Items/Items';
 import { connect } from 'react-redux';
 import { toggleItem } from '../../../redux/actions/items';
 
@@ -14,16 +16,23 @@ class ItemsDisplayList extends Component {
     render() {
         return (
             <FlatList
-                style={styles.listWrapper}
                 data={this.props.items}
                 renderItem={
                     ({item}) =>
-                        <Text
-                            style={(item.status) ? [styles.listItem, styles.listItemChecked] : styles.listItem}
+                        <TouchableOpacity
+                            style={styles.itemWrapper}
                             onPress={() => this.markItem(item)}
                         >
-                            {item.content}
-                        </Text>
+                            <Icon
+                                name={item.status ? 'checkbox-marked' : 'checkbox-blank-outline'}
+                                type='material-community'
+                                size={30}
+                                color={item.status ? '#F57173' : '#D2D3E3'}
+                            />
+                            <Text style={item.status ? [styles.itemText, styles.itemTextChecked] : styles.itemText}>
+                                {item.content}
+                            </Text>
+                        </TouchableOpacity>
                 }
             />
         )
