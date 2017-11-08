@@ -10,11 +10,14 @@ class SingleList extends Component {
     static navigationOptions = ({navigation}) => ({
         title: `${navigation.state.params.title}`,
         headerStyle: {
-            backgroundColor: '#D2D3E3'
+            height: 85,
+            backgroundColor: '#efefef'
         },
         headerTitleStyle: {
-            color: '#5A5EE7'
-        }
+            fontSize: 22,
+            color: '#4286f4'
+        },
+        // headerRight: <HeaderRight />
     });
     render() {
         return (

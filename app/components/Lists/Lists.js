@@ -16,11 +16,11 @@ class Lists extends Component {
         title: 'All Lists',
         headerStyle: {
             height: 85,
-            paddingHorizontal: 10,
+            paddingHorizontal: 3,
             backgroundColor: '#efefef'
         },
         headerTitleStyle: {
-            fontSize: 24,
+            fontSize: 22,
             color: '#4286f4'
         },
         headerRight: <HeaderRight />

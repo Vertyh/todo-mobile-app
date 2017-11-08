@@ -32,7 +32,7 @@ class AddList extends Component {
                         <Icon
                             name='plus'
                             type='material-community'
-                            size={36}
+                            size={34}
                             color="#fff"
                         />
                     </View>
@@ -46,7 +46,7 @@ class AddList extends Component {
                         <Icon
                             name='edit'
                             type='material-icons'
-                            size={38}
+                            size={30}
                             color="#fff"
                         />
                     </View>
@@ -60,7 +60,7 @@ class AddList extends Component {
                         <Icon
                             name='refresh'
                             type='material-icons'
-                            size={38}
+                            size={32}
                             color="#fff"
                         />
                     </View>

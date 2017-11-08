@@ -4,15 +4,18 @@ export default StyleSheet.create({
     listWrapper: {
         flexDirection: "row",
         alignSelf: "stretch",
-        paddingHorizontal: 25,
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         borderBottomColor: "#D2D3E3",
         borderLeftWidth: 8,
         borderLeftColor: "#4286f4"
     },
     listTextWrapper: {
         flex: 0.85,
-        paddingVertical: 25
+        padding: 25
+    },
+    listDisplayTextWrapper: {
+        flex: 1,
+        padding: 25
     },
     listText: {
         fontSize: 24,
@@ -21,7 +24,8 @@ export default StyleSheet.create({
     listActionIconWrapper: {
         flex: 0.15,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        paddingRight: 25
     },
     headerRightWrapper: {
         paddingRight: 10,
@@ -29,8 +33,12 @@ export default StyleSheet.create({
         justifyContent: 'center'
     },
     headerRightBtnInner: {
+        alignItems: "center",
+        justifyContent: "center",
+        width: 50,
+        height: 50,
         borderRadius: 50,
-        padding: 8,
+        padding: 0,
         backgroundColor: "#F57173",
     },
     headerRightBtnEdit: {
