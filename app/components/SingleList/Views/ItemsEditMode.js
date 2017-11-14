@@ -10,6 +10,12 @@ import { Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { removeItem, openEditModal } from '../../../redux/actions/items';
 
+@connect((store) => {
+    return {
+        items: store.items.items
+    }
+})
+
 class ItemsEditList extends Component {
     editItem(item) {
         this.props.dispatch(openEditModal(item));
@@ -59,8 +65,4 @@ class ItemsEditList extends Component {
     }
 }
 
-export default connect((store) => {
-    return {
-        items: store.items.items
-    }
-})(ItemsEditList);
+export default ItemsEditList;

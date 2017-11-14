@@ -10,6 +10,13 @@ import styles from '../../../styles/Modals/Modals';
 import { connect } from 'react-redux';
 import { editList, closeEditModal } from '../../../redux/actions/lists';
 
+@connect((store) => {
+    return {
+        editModalActive: store.lists.editModalActive,
+        editList: store.lists.editList
+    }
+})
+
 class EditListModal extends Component {
     constructor() {
         super();
@@ -79,9 +86,4 @@ class EditListModal extends Component {
     }
 }
 
-export default connect((store) => {
-    return {
-        editModalActive: store.lists.editModalActive,
-        editList: store.lists.editList
-    }
-})(EditListModal);
+export default EditListModal;

@@ -8,6 +8,12 @@ import {
 import { connect } from 'react-redux';
 import styles from '../../../styles/Lists/Lists';
 
+@connect((store) => {
+    return {
+        lists: store.lists.lists
+    }
+})
+
 class ListsDisplayMode extends Component {
     render() {
         console.log(this.props);
@@ -32,8 +38,4 @@ class ListsDisplayMode extends Component {
     }
 }
 
-export default connect((store) => {
-    return {
-        lists: store.lists.lists
-    }
-})(ListsDisplayMode);
+export default ListsDisplayMode;

@@ -11,6 +11,12 @@ import ListsEditMode from './Views/ListsEditMode';
 import stylesCommon from '../../styles/Common';
 import { fetchListsData } from '../../redux/actions/lists';
 
+@connect((store) => {
+    return {
+        editing: store.lists.editing
+    }
+})
+
 class Lists extends Component {
     static navigationOptions = ({navigation}) => ({
         title: 'All Lists',
@@ -47,8 +53,4 @@ class Lists extends Component {
     }
 }
 
-export default connect((store) => {
-    return {
-        editing: store.lists.editing
-    }
-})(Lists);
+export default Lists;

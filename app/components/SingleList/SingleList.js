@@ -11,6 +11,12 @@ import ItemsDisplayMode from './Views/ItemsDisplayMode';
 import ItemsEditMode from './Views/ItemsEditMode';
 import { fetchItemsData, cleanItemsData } from '../../redux/actions/items';
 
+@connect((store) => {
+    return {
+        editing: store.items.editing
+    }
+})
+
 class SingleList extends Component {
     static navigationOptions = ({navigation}) => ({
         title: `${navigation.state.params.title}`,
@@ -50,8 +56,4 @@ class SingleList extends Component {
     }
 }
 
-export default connect((store) => {
-    return {
-        editing: store.items.editing
-    }
-})(SingleList);
+export default SingleList;

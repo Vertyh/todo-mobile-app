@@ -10,6 +10,12 @@ import styles from '../../../styles/Modals/Modals';
 import { connect } from 'react-redux';
 import { addItem, closeItemAddModal } from '../../../redux/actions/items';
 
+@connect((store) => {
+    return {
+        addModalActive: store.items.addModalActive
+    }
+})
+
 class AddItemModal extends Component {
     constructor() {
         super();
@@ -76,8 +82,4 @@ class AddItemModal extends Component {
     }
 }
 
-export default connect((store) => {
-    return {
-        addModalActive: store.items.addModalActive
-    }
-})(AddItemModal);
+export default AddItemModal;

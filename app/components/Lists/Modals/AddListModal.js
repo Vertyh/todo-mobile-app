@@ -10,6 +10,12 @@ import styles from '../../../styles/Modals/Modals';
 import { connect } from 'react-redux';
 import { addList, closeAddModal } from '../../../redux/actions/lists';
 
+@connect((store) => {
+    return {
+        addModalActive: store.lists.addModalActive
+    }
+})
+
 class AddListModal extends Component {
     constructor() {
         super();
@@ -76,8 +82,4 @@ class AddListModal extends Component {
     }
 }
 
-export default connect((store) => {
-    return {
-        addModalActive: store.lists.addModalActive
-    }
-})(AddListModal);
+export default AddListModal;

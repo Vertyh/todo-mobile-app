@@ -10,6 +10,12 @@ import { Icon } from 'react-native-elements';
 import styles from '../../../styles/Lists/Lists';
 import { removeList, openEditModal } from '../../../redux/actions/lists';
 
+@connect((store) => {
+    return {
+        lists: store.lists.lists
+    }
+})
+
 class ListsEditMode extends Component {
     openEditModal(list) {
         this.props.dispatch(openEditModal(list));
@@ -53,8 +59,4 @@ class ListsEditMode extends Component {
     }
 }
 
-export default connect((store) => {
-    return {
-        lists: store.lists.lists
-    }
-})(ListsEditMode);
+export default ListsEditMode;

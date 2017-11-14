@@ -9,6 +9,13 @@ import styles from '../../../styles/Items/Items';
 import { connect } from 'react-redux';
 import { toggleItem } from '../../../redux/actions/items';
 
+@connect((store) => {
+    return {
+        items: store.items.items,
+        editing: store.items.editing
+    }
+})
+
 class ItemsDisplayList extends Component {
     markItem(item) {
         this.props.dispatch(toggleItem(item.key, item.status));
@@ -39,9 +46,4 @@ class ItemsDisplayList extends Component {
     }
 }
 
-export default connect((store) => {
-    return {
-        items: store.items.items,
-        editing: store.items.editing
-    }
-})(ItemsDisplayList);
+export default ItemsDisplayList;

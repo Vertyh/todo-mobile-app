@@ -8,6 +8,12 @@ import styles from '../../../styles/Common/HeaderRight';
 import { connect } from 'react-redux';
 import { openAddModal, fetchListsData, toggleEdit } from '../../../redux/actions/lists';
 
+@connect ((store) => {
+    return {
+        editing: store.lists.editing
+    }
+})
+
 class AddList extends Component {
     openModal() {
         this.props.dispatch(openAddModal());
@@ -70,8 +76,4 @@ class AddList extends Component {
     }
 }
 
-export default connect((store) => {
-    return {
-        editing: store.lists.editing
-    }
-})(AddList);
+export default AddList;
