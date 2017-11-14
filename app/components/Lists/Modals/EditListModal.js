@@ -67,6 +67,7 @@ class EditListModal extends Component {
                     <View style={styles.modalButtons}>
                         <TouchableOpacity
                             style={styles.modalConfirmBtn}
+                            activeOpacity={0.8}
                             onPress={() => this.cancelModal()}
                         >
                             <Text style={styles.modalConfirmText}>Cancel</Text>
@@ -74,6 +75,7 @@ class EditListModal extends Component {
 
                         <TouchableOpacity
                             style={styles.modalConfirmBtn}
+                            activeOpacity={0.8}
                             onPress={() => this.updateListName()}
                         >
                             <Text style={styles.modalConfirmText}>Save</Text>

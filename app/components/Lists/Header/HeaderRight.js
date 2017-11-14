@@ -32,6 +32,7 @@ class AddList extends Component {
         return (
             <View style={styles.headerRightWrapper}>
                 <TouchableOpacity
+                    activeOpacity={0.5}
                     onPress={() => this.openModal()}
                 >
                     <View style={styles.headerRightBtnInner}>
@@ -45,8 +46,9 @@ class AddList extends Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() => this.toggleEditMode()}
                     style={styles.headerRightBtnEdit}
+                    activeOpacity={0.5}
+                    onPress={() => this.toggleEditMode()}
                 >
                     <View style={styles.headerRightBtnInner}>
                         <Icon
@@ -59,8 +61,9 @@ class AddList extends Component {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() => this.refreshLists()}
                     style={styles.headerRightBtnEdit}
+                    activeOpacity={0.5}
+                    onPress={() => this.refreshLists()}
                 >
                     <View style={styles.headerRightBtnInner}>
                         <Icon

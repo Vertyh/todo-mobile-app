@@ -34,6 +34,7 @@ class ItemsEditList extends Component {
                             <View style={styles.itemEditWrapper}>
                                 <TouchableOpacity
                                     style={styles.itemEditTextWrapper}
+                                    activeOpacity={0.5}
                                     onPress={() => this.editItem(item)}
                                 >
                                     <Icon
@@ -48,6 +49,7 @@ class ItemsEditList extends Component {
                                 </TouchableOpacity>
                                 <TouchableOpacity
                                     style={styles.itemEditRemoveBtn}
+                                    activeOpacity={0.5}
                                     onPress={() => this.removeItem(item.key)}
                                 >
                                     <Icon

@@ -28,6 +28,7 @@ class ItemsDisplayList extends Component {
                     ({item}) =>
                         <TouchableOpacity
                             style={styles.itemWrapper}
+                            activeOpacity={0.5}
                             onPress={() => this.markItem(item)}
                         >
                             <Icon
