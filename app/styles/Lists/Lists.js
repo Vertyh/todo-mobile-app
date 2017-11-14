@@ -4,10 +4,8 @@ export default StyleSheet.create({
     listWrapper: {
         flexDirection: "row",
         alignSelf: "stretch",
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
         borderBottomColor: "#D2D3E3",
-        borderLeftWidth: 8,
-        borderLeftColor: "#4286f4",
     },
     listTextWrapper: {
         flex: 0.85,
