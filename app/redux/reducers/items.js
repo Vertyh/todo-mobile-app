@@ -1,4 +1,8 @@
-let defaultState = {
+import * as utils from '../../utils/common';
+import * as itemsUtils from '../../utils/items';
+import * as api from '../../utils/api';
+
+const DEFAULT_STATE = {
     items: [],
     currentList: '',
     editing: false,
@@ -7,11 +11,7 @@ let defaultState = {
     editItem: {}
 };
 
-import * as utils from '../../utils/common';
-import * as itemsUtils from '../../utils/items';
-import * as api from '../../utils/api';
-
-export default function reducer(state=defaultState, action) {
+export default function reducer(state=DEFAULT_STATE, action) {
     switch(action.type) {
         case 'FETCH_ITEMS_DATA': {
             return {

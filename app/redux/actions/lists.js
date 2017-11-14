@@ -37,7 +37,7 @@ export function removeList(key) {
     }
 }
 
-export function toggleEdit(editing) {
+export function toggleListEdit(editing) {
     return function(dispatch) {
         dispatch({type: 'TOGGLE_LISTS_EDIT', payload: editing});
     }

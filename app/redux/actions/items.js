@@ -52,7 +52,7 @@ export function closeItemAddModal() {
     }
 }
 
-export function toggleEdit(editing) {
+export function toggleItemEdit(editing) {
     return function(dispatch) {
         dispatch({type: 'TOGGLE_ITEM_EDIT', payload: editing});
     }

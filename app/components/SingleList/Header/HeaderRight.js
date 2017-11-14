@@ -6,7 +6,7 @@ import {
 import { Icon } from 'react-native-elements';
 import styles from '../../../styles/Common/HeaderRight';
 import { connect } from 'react-redux';
-import { openItemAddModal, fetchItemsData, toggleEdit } from '../../../redux/actions/items';
+import { openItemAddModal, fetchItemsData, toggleItemEdit } from '../../../redux/actions/items';
 
 @connect((store) => {
     return {
@@ -21,7 +21,7 @@ class AddList extends Component {
 
     toggleEditMode() {
         let editing = !this.props.editing;
-        this.props.dispatch(toggleEdit(editing));
+        this.props.dispatch(toggleItemEdit(editing));
     }
 
     refreshLists() {

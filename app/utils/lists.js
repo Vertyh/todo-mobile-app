@@ -1,6 +1,6 @@
 /**
  * Edit given list
- * @param {Array} items - all lists
+ * @param {Array} lists - all lists
  * @param {Object} editedList - object containing edited list data
  * @return {Array} Updated list of lists
  */

@@ -1,9 +1,9 @@
 import { AppNavigator } from '../../navigators/AppNavigator';
 import { NavigationActions } from 'react-navigation';
 
-const initialNavState = AppNavigator.router.getStateForAction('Home');
+const INITIAL_NAV_STATE = AppNavigator.router.getStateForAction('Home');
 
-export default function nav(state = initialNavState, action) {
+export default function nav(state=INITIAL_NAV_STATE, action) {
     let nextState;
     switch (action.type) {
         case 'Home':
@@ -13,8 +13,13 @@ export default function nav(state = initialNavState, action) {
             break;
         case 'Single':
             nextState = AppNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'Single', params: {title: action.payload.title, key: action.payload.key} }),
-                state
+                NavigationActions.navigate({
+                    routeName: 'Single',
+                    params: {
+                        title: action.payload.title,
+                        key: action.payload.key
+                    }
+                }), state
             );
             break;
         default:
