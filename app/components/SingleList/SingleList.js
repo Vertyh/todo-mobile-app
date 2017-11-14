@@ -9,7 +9,7 @@ import AddItemModal from './Modals/AddItemModal';
 import EditItemModal from './Modals/EditItemModal';
 import ItemsDisplayMode from './Views/ItemsDisplayMode';
 import ItemsEditMode from './Views/ItemsEditMode';
-import { fetchItemsData } from '../../redux/actions/items';
+import { fetchItemsData, cleanItemsData } from '../../redux/actions/items';
 
 class SingleList extends Component {
     static navigationOptions = ({navigation}) => ({
@@ -21,13 +21,17 @@ class SingleList extends Component {
         headerTitleStyle: {
             fontSize: 22,
             color: '#4286f4',
-            maxWidth: 120
+            maxWidth: 110
         },
         headerRight: <HeaderRight listKey={navigation.state.params.key} />
     });
 
     componentDidMount() {
         this.props.dispatch(fetchItemsData(this.props.navigation.state.params.key));
+    }
+
+    componentWillUnmount() {
+        this.props.dispatch(cleanItemsData());
     }
 
     render() {

@@ -23,6 +23,12 @@ export default function reducer(state=defaultState, action) {
         case 'FETCHING_ITEMS_ERROR': {
             return { ...state }
         }
+        case 'CLEAN_ITEMS_DATA': {
+            return {
+                ...state,
+                items: []
+            }
+        }
         case 'ADD_ITEM': {
             let newItem = {
                 key: utils.generateUniqueKey(),

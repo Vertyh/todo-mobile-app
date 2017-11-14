@@ -16,6 +16,12 @@ export function fetchItemsData(listKey) {
     }
 }
 
+export function cleanItemsData() {
+    return function (dispatch) {
+        dispatch({type: 'CLEAN_ITEMS_DATA'});
+    }
+}
+
 export function addItem(item) {
     return function(dispatch) {
         dispatch({type: 'ADD_ITEM', payload: item});
