@@ -25,7 +25,7 @@ class ListsDisplayMode extends Component {
                         <View style={styles.listWrapper}>
                             <TouchableOpacity
                                 style={styles.listDisplayTextWrapper}
-                                onPress={() => this.props.navigation.dispatch({ type: 'Single', payload: {key: item.key, title: item.list_name}})}
+                                onPress={() => this.props.navigation.dispatch({ type: 'SingleList', payload: {key: item.key, title: item.list_name}})}
                             >
                                 <Text style={styles.listText}>
                                     {item.list_name}

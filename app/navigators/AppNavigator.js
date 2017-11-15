@@ -2,14 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
+import Login from '../components/Login/Login';
 import Lists from '../components/Lists/Lists';
 import SingleList from '../components/SingleList/SingleList';
 
 export const AppNavigator = StackNavigator({
-    Home: {
+    Login: {
+        screen: Login
+    },
+    Lists: {
         screen: Lists
     },
-    Single: {
+    SingleList: {
         screen: SingleList
     }
 });
