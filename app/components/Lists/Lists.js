@@ -11,6 +11,14 @@ import ListsEditMode from './Views/ListsEditMode';
 import stylesCommon from '../../styles/Common';
 import { fetchListsData } from '../../redux/actions/lists';
 
+// ---------------------------------------------------------------------------------------
+// Styled components
+
+import DefaultContainer from '../Common/Containers/DefaultContainer';
+
+// ---------------------------------------------------------------------------------------
+// Redux
+
 @connect((store) => {
     return {
         editing: store.lists.editing
@@ -44,11 +52,11 @@ class Lists extends Component {
         }
 
         return (
-            <View style={stylesCommon.container}>
+            <DefaultContainer>
                 <AddListModal />
                 <EditListModal />
                 {lists}
-            </View>
+            </DefaultContainer>
         );
     }
 }

@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
-import {
-    View,
-    TouchableOpacity
-} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
-import styles from '../../../styles/Common/HeaderRight';
 import { connect } from 'react-redux';
 import { openItemAddModal, fetchItemsData, toggleItemEdit } from '../../../redux/actions/items';
+
+// ---------------------------------------------------------------------------------------
+// Styled components
+
+import HeaderRightWrapper from '../../Common/Header/HeaderRightWrapper';
+import HeaderRightInner from '../../Common/Header/HeaderRightInner';
+import HeaderRightCustomButton from '../../Common/Header/HeaderRightCustomButton';
+
+// ---------------------------------------------------------------------------------------
+// Redux
 
 @connect((store) => {
     return {
@@ -30,51 +36,49 @@ class AddList extends Component {
 
     render() {
         return (
-            <View style={styles.headerRightWrapper}>
+            <HeaderRightWrapper>
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => this.openModal()}
                 >
-                    <View style={styles.headerRightBtnInner}>
+                    <HeaderRightInner>
                         <Icon
                             name='plus'
                             type='material-community'
                             size={34}
                             color="#fff"
                         />
-                    </View>
+                    </HeaderRightInner>
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                    style={styles.headerRightBtnEdit}
+                <HeaderRightCustomButton
                     activeOpacity={0.5}
                     onPress={() => this.toggleEditMode()}
                 >
-                    <View style={styles.headerRightBtnInner}>
+                    <HeaderRightInner>
                         <Icon
                             name='edit'
                             type='material-icons'
                             size={30}
                             color="#fff"
                         />
-                    </View>
-                </TouchableOpacity>
+                    </HeaderRightInner>
+                </HeaderRightCustomButton>
 
-                <TouchableOpacity
-                    style={styles.headerRightBtnEdit}
+                <HeaderRightCustomButton
                     activeOpacity={0.5}
                     onPress={() => this.refreshLists()}
                 >
-                    <View style={styles.headerRightBtnInner}>
+                    <HeaderRightInner>
                         <Icon
                             name='refresh'
                             type='material-icons'
                             size={32}
                             color="#fff"
                         />
-                    </View>
-                </TouchableOpacity>
-            </View>
+                    </HeaderRightInner>
+                </HeaderRightCustomButton>
+            </HeaderRightWrapper>
         )
     }
 }

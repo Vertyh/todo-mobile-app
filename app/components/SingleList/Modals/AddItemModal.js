@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
-import {
-    View,
-    TextInput,
-    TouchableOpacity,
-    Text
-} from 'react-native';
 import Modal from 'react-native-modal'
-import styles from '../../../styles/Modals/Modals';
 import { connect } from 'react-redux';
 import { addItem, closeItemAddModal } from '../../../redux/actions/items';
+
+// ---------------------------------------------------------------------------------------
+// Styled components
+
+import BaseModalWrapper from '../../Common/Modals/BaseModalWrapper';
+import BaseModalInputWrapper from '../../Common/Modals/BaseModalInputWrapper';
+import BaseModalInput from '../../Common/Modals/BaseModalInput';
+import BaseModalButtons from '../../Common/Modals/BaseModalButtons';
+import BaseModalConfirmButton from '../../Common/Modals/BaseModalConfirmButton';
+import BaseModalConfirmText from '../../Common/Modals/BaseModalConfirmText';
+
+// ---------------------------------------------------------------------------------------
+// Redux
 
 @connect((store) => {
     return {
@@ -46,11 +52,10 @@ class AddItemModal extends Component {
                     this.addInput.focus();
                 }}
             >
-                <View style={styles.baseModalWrapper}>
+                <BaseModalWrapper>
 
-                    <View style={styles.modalInputWrapper}>
-                        <TextInput
-                            style={styles.baseModalInput}
+                    <BaseModalInputWrapper>
+                        <BaseModalInput
                             placeholder="List"
                             placeholderTextColor="rgba(0, 0, 0, 0.9)"
                             underlineColorAndroid="transparent"
@@ -58,27 +63,29 @@ class AddItemModal extends Component {
                             onChangeText={(text) => this.setState({item: text})}
                             onSubmitEditing={() => this.addNewItem()}
                         />
-                    </View>
+                    </BaseModalInputWrapper>
 
-                    <View style={styles.modalButtons}>
-                        <TouchableOpacity
-                            style={styles.modalConfirmBtn}
+                    <BaseModalButtons>
+                        <BaseModalConfirmButton
                             activeOpacity={0.8}
                             onPress={() => this.cancelModal()}
                         >
-                            <Text style={styles.modalConfirmText}>Cancel</Text>
-                        </TouchableOpacity>
+                            <BaseModalConfirmText>
+                                Cancel
+                            </BaseModalConfirmText>
+                        </BaseModalConfirmButton>
 
-                        <TouchableOpacity
-                            style={styles.modalConfirmBtn}
+                        <BaseModalConfirmButton
                             activeOpacity={0.8}
                             onPress={() => this.addNewItem()}
                         >
-                            <Text style={styles.modalConfirmText}>Add</Text>
-                        </TouchableOpacity>
-                    </View>
+                            <BaseModalConfirmText>
+                                Add
+                            </BaseModalConfirmText>
+                        </BaseModalConfirmButton>
+                    </BaseModalButtons>
 
-                </View>
+                </BaseModalWrapper>
             </Modal>
         )
     }

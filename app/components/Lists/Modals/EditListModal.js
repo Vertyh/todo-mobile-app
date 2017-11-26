@@ -1,14 +1,20 @@
 import React, {Component} from 'react';
-import {
-    View,
-    TextInput,
-    TouchableOpacity,
-    Text
-} from 'react-native';
 import Modal from 'react-native-modal'
-import styles from '../../../styles/Modals/Modals';
 import { connect } from 'react-redux';
 import { editList, closeEditModal } from '../../../redux/actions/lists';
+
+// ---------------------------------------------------------------------------------------
+// Styled components
+
+import BaseModalWrapper from '../../Common/Modals/BaseModalWrapper';
+import BaseModalInputWrapper from '../../Common/Modals/BaseModalInputWrapper';
+import BaseModalInput from '../../Common/Modals/BaseModalInput';
+import BaseModalButtons from '../../Common/Modals/BaseModalButtons';
+import BaseModalConfirmButton from '../../Common/Modals/BaseModalConfirmButton';
+import BaseModalConfirmText from '../../Common/Modals/BaseModalConfirmText';
+
+// ---------------------------------------------------------------------------------------
+// Redux
 
 @connect((store) => {
     return {
@@ -49,11 +55,9 @@ class EditListModal extends Component {
                     this.addInput.focus();
                 }}
             >
-                <View style={styles.baseModalWrapper}>
-
-                    <View style={styles.modalInputWrapper}>
-                        <TextInput
-                            style={styles.baseModalInput}
+                <BaseModalWrapper>
+                    <BaseModalInputWrapper>
+                        <BaseModalInput
                             placeholder="List"
                             placeholderTextColor="rgba(0, 0, 0, 0.9)"
                             underlineColorAndroid="transparent"
@@ -62,27 +66,29 @@ class EditListModal extends Component {
                             onChangeText={(text) => this.setState({listName: text})}
                             onSubmitEditing={() => this.updateListName()}
                         />
-                    </View>
+                    </BaseModalInputWrapper>
 
-                    <View style={styles.modalButtons}>
-                        <TouchableOpacity
-                            style={styles.modalConfirmBtn}
+                    <BaseModalButtons>
+                        <BaseModalConfirmButton
                             activeOpacity={0.8}
                             onPress={() => this.cancelModal()}
                         >
-                            <Text style={styles.modalConfirmText}>Cancel</Text>
-                        </TouchableOpacity>
+                            <BaseModalConfirmText>
+                                Cancel
+                            </BaseModalConfirmText>
+                        </BaseModalConfirmButton>
 
-                        <TouchableOpacity
-                            style={styles.modalConfirmBtn}
+                        <BaseModalConfirmButton
                             activeOpacity={0.8}
                             onPress={() => this.updateListName()}
                         >
-                            <Text style={styles.modalConfirmText}>Save</Text>
-                        </TouchableOpacity>
-                    </View>
+                            <BaseModalConfirmText>
+                                Save
+                            </BaseModalConfirmText>
+                        </BaseModalConfirmButton>
+                    </BaseModalButtons>
 
-                </View>
+                </BaseModalWrapper>
             </Modal>
         )
     }
