@@ -7,9 +7,9 @@ import Lists from '../components/Lists/Lists';
 import SingleList from '../components/SingleList/SingleList';
 
 export const AppNavigator = StackNavigator({
-    Login: {
-        screen: Login
-    },
+    // Login: {
+    //     screen: Login
+    // },
     Lists: {
         screen: Lists
     },
