@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import {
-    View
-} from 'react-native';
 import { connect } from 'react-redux';
-import styles from '../../styles/Common';
 import HeaderRight from './Header/HeaderRight';
 import AddItemModal from './Modals/AddItemModal';
 import EditItemModal from './Modals/EditItemModal';
 import ItemsDisplayMode from './Views/ItemsDisplayMode';
 import ItemsEditMode from './Views/ItemsEditMode';
 import { fetchItemsData, cleanItemsData } from '../../redux/actions/items';
+
+// ---------------------------------------------------------------------------------------
+// Styled components
+
+import DefaultContainer from '../Common/Containers/DefaultContainer';
+
+// ---------------------------------------------------------------------------------------
+// Redux
 
 @connect((store) => {
     return {
@@ -47,11 +51,11 @@ class SingleList extends Component {
             list = <ItemsEditMode />;
         }
         return (
-            <View style={styles.container}>
+            <DefaultContainer>
                 <AddItemModal />
                 <EditItemModal />
                 {list}
-            </View>
+            </DefaultContainer>
         );
     }
 }

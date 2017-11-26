@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import {
-    View
-} from 'react-native';
 import { connect } from 'react-redux';
 import HeaderRight from './Header/HeaderRight';
 import AddListModal from './Modals/AddListModal';
 import EditListModal from './Modals/EditListModal';
 import ListsDisplayMode from './Views/ListsDisplayMode';
 import ListsEditMode from './Views/ListsEditMode';
-import stylesCommon from '../../styles/Common';
 import { fetchListsData } from '../../redux/actions/lists';
 
 // ---------------------------------------------------------------------------------------
