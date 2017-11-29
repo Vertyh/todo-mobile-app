@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
-import {
-    FlatList,
-    TouchableOpacity,
-    Text
-} from 'react-native';
+import { FlatList } from 'react-native';
 import { Icon } from 'react-native-elements';
-import styles from '../../../styles/Items/Items';
 import { connect } from 'react-redux';
 import { toggleItem } from '../../../redux/actions/items';
+
+// ---------------------------------------------------------------------------------------
+// Styled components
+
+import ItemWrapper from '../../Common/Views/ItemWrapper';
+import ItemText from '../../Common/Views/ItemText';
+
+// ---------------------------------------------------------------------------------------
+// Redux
 
 @connect((store) => {
     return {
@@ -26,8 +30,7 @@ class ItemsDisplayList extends Component {
                 data={this.props.items}
                 renderItem={
                     ({item}) =>
-                        <TouchableOpacity
-                            style={styles.itemWrapper}
+                        <ItemWrapper
                             activeOpacity={0.5}
                             onPress={() => this.markItem(item)}
                         >
@@ -37,10 +40,10 @@ class ItemsDisplayList extends Component {
                                 size={30}
                                 color={item.status ? '#F57173' : '#D2D3E3'}
                             />
-                            <Text style={item.status ? [styles.itemText, styles.itemTextChecked] : styles.itemText}>
+                            <ItemText status={item.status}>
                                 {item.content}
-                            </Text>
-                        </TouchableOpacity>
+                            </ItemText>
+                        </ItemWrapper>
                 }
             />
         )

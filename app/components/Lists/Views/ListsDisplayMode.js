@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import {
-    View,
-    FlatList,
-    Text,
-    TouchableOpacity
-} from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import styles from '../../../styles/Lists/Lists';
+
+// ---------------------------------------------------------------------------------------
+// Styled components
+
+import ListWrapper from '../../Common/Views/ListWrapper';
+import ListDisplayTextWrapper from '../../Common/Views/ListDisplayTextWrapper';
+import ListText from '../../Common/Views/ListText';
+
+// ---------------------------------------------------------------------------------------
+// Redux
 
 @connect((store) => {
     return {
@@ -16,22 +20,20 @@ import styles from '../../../styles/Lists/Lists';
 
 class ListsDisplayMode extends Component {
     render() {
-        console.log(this.props);
         return (
             <FlatList
                 data={this.props.lists}
                 renderItem={
                     ({item}) =>
-                        <View style={styles.listWrapper}>
-                            <TouchableOpacity
-                                style={styles.listDisplayTextWrapper}
+                        <ListWrapper>
+                            <ListDisplayTextWrapper
                                 onPress={() => this.props.navigation.dispatch({ type: 'SingleList', payload: {key: item.key, title: item.list_name}})}
                             >
-                                <Text style={styles.listText}>
+                                <ListText>
                                     {item.list_name}
-                                </Text>
-                            </TouchableOpacity>
-                        </View>
+                                </ListText>
+                            </ListDisplayTextWrapper>
+                        </ListWrapper>
                 }
             />
         )

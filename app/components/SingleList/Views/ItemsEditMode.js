@@ -1,14 +1,19 @@
 import React, {Component} from 'react';
-import {
-    View,
-    FlatList,
-    Text,
-    TouchableOpacity
-} from 'react-native';
-import styles from '../../../styles/Items/Items';
+import { FlatList } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { removeItem, openEditModal } from '../../../redux/actions/items';
+
+// ---------------------------------------------------------------------------------------
+// Styled components
+
+import ListWrapper from '../../Common/Views/ListWrapper';
+import ItemEditTextWrapper from '../../Common/Views/ItemEditTextWrapper';
+import ItemEditRemoveBtn from '../../Common/Views/ItemEditRemoveBtn';
+import ItemText from '../../Common/Views/ItemText';
+
+// ---------------------------------------------------------------------------------------
+// Redux
 
 @connect((store) => {
     return {
@@ -25,44 +30,39 @@ class ItemsEditList extends Component {
     }
     render() {
         return (
-            <View>
-                <FlatList
-                    style={styles.listWrapper}
-                    data={this.props.items}
-                    renderItem={
-                        ({item}) =>
-                            <View style={styles.itemEditWrapper}>
-                                <TouchableOpacity
-                                    style={styles.itemEditTextWrapper}
-                                    activeOpacity={0.5}
-                                    onPress={() => this.editItem(item)}
-                                >
-                                    <Icon
-                                        name={item.status ? 'checkbox-marked' : 'checkbox-blank-outline'}
-                                        type='material-community'
-                                        size={30}
-                                        color={item.status ? '#F57173' : '#D2D3E3'}
-                                    />
-                                    <Text style={(item.status) ? [styles.itemText, styles.itemTextChecked] : styles.itemText}>
-                                        {item.content}
-                                    </Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity
-                                    style={styles.itemEditRemoveBtn}
-                                    activeOpacity={0.5}
-                                    onPress={() => this.removeItem(item.key)}
-                                >
-                                    <Icon
-                                        name='close'
-                                        type='material-community'
-                                        size={46}
-                                        color="#FF3A3D"
-                                    />
-                                </TouchableOpacity>
-                            </View>
-                    }
-                />
-            </View>
+            <FlatList
+                data={this.props.items}
+                renderItem={
+                    ({item}) =>
+                        <ListWrapper>
+                            <ItemEditTextWrapper
+                                activeOpacity={0.5}
+                                onPress={() => this.editItem(item)}
+                            >
+                                <Icon
+                                    name={item.status ? 'checkbox-marked' : 'checkbox-blank-outline'}
+                                    type='material-community'
+                                    size={30}
+                                    color={item.status ? '#F57173' : '#D2D3E3'}
+                                />
+                                <ItemText status={item.status}>
+                                    {item.content}
+                                </ItemText>
+                            </ItemEditTextWrapper>
+                            <ItemEditRemoveBtn
+                                activeOpacity={0.5}
+                                onPress={() => this.removeItem(item.key)}
+                            >
+                                <Icon
+                                    name='close'
+                                    type='material-community'
+                                    size={46}
+                                    color="#FF3A3D"
+                                />
+                            </ItemEditRemoveBtn>
+                        </ListWrapper>
+                }
+            />
         )
     }
 }

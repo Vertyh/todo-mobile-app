@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import {
-    View,
-    FlatList,
-    Text,
-    TouchableOpacity
-} from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { Icon } from 'react-native-elements';
-import styles from '../../../styles/Lists/Lists';
 import { removeList, openEditModal } from '../../../redux/actions/lists';
+
+// ---------------------------------------------------------------------------------------
+// Styled components
+
+import ListWrapper from '../../Common/Views/ListWrapper';
+import ListEditTextWrapper from '../../Common/Views/ListEditTextWrapper';
+import ListText from '../../Common/Views/ListText';
+import ListActionIconWrapper from '../../Common/Views/ListActionIconWrapper';
+
+// ---------------------------------------------------------------------------------------
+// Redux
 
 @connect((store) => {
     return {
@@ -31,18 +36,16 @@ class ListsEditMode extends Component {
                 data={this.props.lists}
                 renderItem={
                     ({item}) =>
-                        <View style={styles.listWrapper}>
-                            <TouchableOpacity
-                                style={styles.listTextWrapper}
+                        <ListWrapper>
+                            <ListEditTextWrapper
                                 onPress={() => this.openEditModal(item)}
                             >
-                                <Text style={styles.listText}>
+                                <ListText>
                                     {item.list_name}
-                                </Text>
-                            </TouchableOpacity>
+                                </ListText>
+                            </ListEditTextWrapper>
 
-                            <TouchableOpacity
-                                style={styles.listActionIconWrapper}
+                            <ListActionIconWrapper
                                 onPress={() => this.removeList(item.key)}
                             >
                                 <Icon
@@ -51,8 +54,8 @@ class ListsEditMode extends Component {
                                     size={46}
                                     color="#FF3A3D"
                                 />
-                            </TouchableOpacity>
-                        </View>
+                            </ListActionIconWrapper>
+                        </ListWrapper>
                 }
             />
         )
